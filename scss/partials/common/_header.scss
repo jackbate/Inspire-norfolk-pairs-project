@@ -1,3 +1,174 @@
+body {
+  background-color: green; // $secondary;
+}
+
+header {
+  background-color: $secondary;
+  max-height: max-content;
+}
+
 .content-wrapper {
   @include set-content-width;
+  @include flexbox;
+  @include flex-flow($values: (row wrap));
+  @include justify-content($value: space-between);
+  @include align-items($value: center);
+
+  margin: 0 auto;
+  height: 100%;
+}
+
+#site-logo {
+  @include flex($grow: 1, $shrink: 1, $basis: 0);
+  @include order(1);
+
+  margin        : 0 15px;
+  padding       : 5px 0;
+
+  max-width: 150px;
+  min-width: 0;
+  a > img {
+    width: 100%;
+  }
+}
+
+#header-nav {
+  @include order($int: 4);      // Change order to be the last item
+  @include flex($basis: 100%);  // Make span full width, causing it to wrap
+
+  ul {
+    @include flexbox;
+    @include flex-flow($values: (row nowrap));
+    @include justify-content(space-around);
+
+    list-style       : none;
+    padding          : 0;
+    margin           : 0 15px;
+
+    li {
+      display        : inline-block;
+      margin         : 0 0 5px;
+      padding        : 5px 0;
+      border         : 1px solid $secondary;
+
+      &:hover, &:focus, &:active {
+        border-bottom: 1px solid $primary-hover;
+      }
+    }
+
+    li > a {
+      font-size      : .825rem;
+      font-weight    : 300;
+      color          : $primary;
+      text-decoration: none;
+      text-align     : center;
+      text-transform : capitalize;
+
+      &:hover, &:focus, &:active {
+        color        : $primary-hover;
+      }
+    }
+  }
+}
+
+#voip-button {
+  @include flex($grow: 0, $shrink: 0, $basis: auto);
+  @include order(3);
+  margin            : auto 15px;
+  padding           : 0 10px;
+  height            : 40px;
+
+  line-height       : 40px;
+  font-size         : 1rem;
+  text-decoration   : none;
+
+  border            : 1px solid $primary;
+  border-radius     : 3px;
+  background-color  : $primary;
+
+  i {
+    display: none
+  }
+
+  span {
+    color           : $secondary;
+    font-weight     : 600;     // NTD: Check if a different font?
+  }
+
+  &:hover, &:focus, &:active {
+    background-color: $primary-hover;
+    border-color    : $primary-hover;
+    i {
+      color         : $primary-hover;
+    }
+  }
+}
+
+@media (min-width: 355px) {
+  #header-nav {
+    ul {
+      li > a {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'm')) {
+  #site-logo {
+    @include flex($grow: 0, $shrink: 0);
+    margin-left: 0;
+  }
+
+  .content-wrapper {
+    @include flex-flow($values: (row nowrap));
+  }
+
+  #header-nav {
+    @include flex($basis: auto);
+    @include order(2);
+    max-width    : 500px;
+    margin: 0 5px;
+
+    ul {
+      @include justify-content(space-between);
+      padding    : 0;
+      margin     : 0;
+
+      li > a {
+        font-size: 1.125rem;
+      }
+    }
+  }
+
+  #voip-button {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'l')) {
+  #header-nav {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+  #voip-button {
+    padding: 0 5px;
+    span {
+      padding-left    : 5px;
+    }
+    i {
+      display         : inline;
+      background-color: $secondary;
+      color           : $primary;
+      border          : 10px solid $secondary;
+      border-radius   : 100%;
+    }
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'xl')) {
+  #header-nav {
+    margin-left: auto;
+    margin-right: 45px;
+  }
 }

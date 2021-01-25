@@ -16,6 +16,27 @@ body {
   overflow: auto;
 }
 
+body {
+  background-color: green;
+}
+
+header {
+  background-color: white;
+  max-height: max-content;
+}
+
+.content-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 100%;
+}
 @media (min-width: 767px) {
   .content-wrapper {
     box-sizing: content-box;
@@ -38,6 +59,154 @@ body {
   .content-wrapper {
     box-sizing: content-box;
     max-width: 1200px;
+  }
+}
+
+#site-logo {
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  -ms-flex-order: 1;
+  order: 1;
+  margin: 0 15px;
+  padding: 5px 0;
+  max-width: 150px;
+  min-width: 0;
+}
+#site-logo a > img {
+  width: 100%;
+}
+
+#header-nav {
+  -ms-flex-order: 4;
+  order: 4;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
+}
+#header-nav ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+  margin: 0 15px;
+}
+#header-nav ul li {
+  display: inline-block;
+  margin: 0 0 5px;
+  padding: 5px 0;
+  border: 1px solid white;
+}
+#header-nav ul li:hover, #header-nav ul li:focus, #header-nav ul li:active {
+  border-bottom: 1px solid #433172;
+}
+#header-nav ul li > a {
+  font-size: 0.825rem;
+  font-weight: 300;
+  color: #584096;
+  text-decoration: none;
+  text-align: center;
+  text-transform: capitalize;
+}
+#header-nav ul li > a:hover, #header-nav ul li > a:focus, #header-nav ul li > a:active {
+  color: #433172;
+}
+
+#voip-button {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -ms-flex-order: 3;
+  order: 3;
+  margin: auto 15px;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 1px solid #584096;
+  border-radius: 3px;
+  background-color: #584096;
+}
+#voip-button i {
+  display: none;
+}
+#voip-button span {
+  color: white;
+  font-weight: 600;
+}
+#voip-button:hover, #voip-button:focus, #voip-button:active {
+  background-color: #433172;
+  border-color: #433172;
+}
+#voip-button:hover i, #voip-button:focus i, #voip-button:active i {
+  color: #433172;
+}
+
+@media (min-width: 355px) {
+  #header-nav ul li > a {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  #site-logo {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+
+  .content-wrapper {
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+  }
+
+  #header-nav {
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    -ms-flex-order: 2;
+    order: 2;
+    max-width: 500px;
+    margin: 0 5px;
+  }
+  #header-nav ul {
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+  }
+  #header-nav ul li > a {
+    font-size: 1.125rem;
+  }
+
+  #voip-button {
+    margin-right: 0;
+  }
+}
+@media (min-width: 992px) {
+  #header-nav {
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  #voip-button {
+    padding: 0 5px;
+  }
+  #voip-button span {
+    padding-left: 5px;
+  }
+  #voip-button i {
+    display: inline;
+    background-color: white;
+    color: #584096;
+    border: 10px solid white;
+    border-radius: 100%;
+  }
+}
+@media (min-width: 1260px) {
+  #header-nav {
+    margin-left: auto;
+    margin-right: 45px;
   }
 }
 

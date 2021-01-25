@@ -25,16 +25,18 @@
 
     <header>
       <div class="content-wrapper"> <!-- .content-wrapper to set size using mixin (see breakpoints partial) -->
-        <img src="../assets/images/logo.jpeg">
-        <nav>
+        <div id="site-logo"> <!-- Flex-Item 1 -->
+          <a href="#"><img src="assets/images/logo.jpeg"></a>
+        </div>
+        <nav role="navigation" id="header-nav"> <!-- Flex-Item 2 -->
           <ul>
-            <li>About us</li>
-            <li>Our services</li>
-            <li>Testimonials</li>
-            <li>Contact us</li>
+            <li><a href="#" class="header-nav-text">About us</a></li>
+            <li><a href="#" class="header-nav-text">Our services</a></li>
+            <li><a href="#" class="header-nav-text">Testimonials</a></li>
+            <li><a href="#" class="header-nav-text">Contact us</a></li>
           </ul>
         </nav>
-        <a href="tel:+441603670909">
+        <a href="tel:+441603670909" id="voip-button"> <!-- Flex-Item 3 -->
           <i class="fas fa-phone-alt"></i>
           <span>01603 670909</span>
         </a>
