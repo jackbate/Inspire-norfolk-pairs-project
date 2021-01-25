@@ -1,0 +1,31 @@
+//==============================
+// Responsive design breakpoints
+//==============================
+
+$breakpoints: (
+  's'  : 767px,    // SMALL:   0px-767px
+  'm'  : 768px,    // MEDIUM:  768px-991px
+  'l'  : 992px,    // LARGE:   992px-1259px
+  'xl' : 1260px,   // X-LARGE: >= 1260px
+);
+
+// This mixin is used for setting the width of page sections.
+
+// In IE 10/11, a bug (FlexBug7) causes flex containers with non-auto
+// flex-basis to have their size calculated as `content-box`. For consistency
+// it may be easier to use `box-sizing: content-box;` throughout the project.
+
+@mixin set-content-width {
+  $map-of-widths: (
+    's' : 750px,
+    'm' : 750px,
+    'l' : 970px,
+    'xl': 1200px,
+  );
+  @each $key, $value in $breakpoints {
+    @media (min-width: $value) {
+      box-sizing: content-box;
+      max-width : map-get($map-of-widths, $key);
+    }
+  }
+}
