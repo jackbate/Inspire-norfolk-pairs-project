@@ -22,3 +22,25 @@ body {
         "partials/common/summary",
         "partials/common/cards",
         "partials/common/footer";
+
+
+#viewport {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows     : max-content auto;
+  grid-template-rows: max-content auto;
+  -ms-grid-columns  : 100vw;
+
+  max-height        : 100vh;
+
+  header {                             // IE needs grid items set explicitly
+    -ms-grid-row: 1;                   // in the grid.
+    -ms-grid-column: 1;
+  }
+  #banner {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+
+    height: 80vh;
+  }
+}
