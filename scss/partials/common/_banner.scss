@@ -2,12 +2,13 @@
   height            : 100%;
 }
 
-#banner-container {
+#banner-shapes-container {
   height            : inherit;
   width             : inherit;
 
   #banner-rectangle {
     display: none;
+    position: relative;
   }
 
   #banner-image {
@@ -19,20 +20,90 @@
   }
 }
 
-@media (min-width: map-get($breakpoints, 'm')) {
-  #banner {
-    height            : 100%;
-  }
 
-  $triangleHeight     : calc(40vh + 10px);
-  $triangleWidth      : calc(#{$triangleHeight} * 0.6 + 5px);
+#banner-content-container {
+  position             : absolute;
+  height               : 0;
+  z-index              : 100;
+  width                : 100%;
 
-  #banner-container {
+  #banner-content-flexbox {
     @include flexbox;
     @include flex-flow((column no-wrap));
-    height            : inherit;
-    width             : inherit;
-    overflow          : hidden;
+
+    @include set-content-width;
+    margin             : 120px auto auto;
+
+    #banner-content {
+      @include flex($grow: 0, $shrink: 0, $basis: 55%);
+      width            : 55%;
+      * {
+        display        : inline-block;
+        margin         : 15px 0;
+        color          : $secondary;
+      }
+      h1, h2, h3 {
+        text-transform : uppercase;
+      }
+      h1 {
+        font-size      : 3.25rem;
+      }
+      h2 {
+        font-size      : 1.825rem;
+        font-weight    : 300;
+        white-space    : nowrap;
+      }
+      h3 {
+        font-size      : 1.5rem;
+        font-weight    : 400;
+        white-space    : nowrap;
+      }
+      hr {
+        width          : 430px;
+        height         : 0;
+        border         : 1px solid $secondary;
+      }
+      p {
+        width          : 80%;
+        font-size      : 1.125rem;
+        font-weight    : 300;
+        line-height    : 1.5;
+      }
+      a {
+        padding        : 10px 35px;
+
+        font-size      : 1.25rem;
+        font-weight    : 300;
+        line-height    : 1.25rem;
+        text-transform : capitalize;
+        text-decoration: none;
+
+        border         : 2px solid $secondary;
+        border-radius  : 5px;
+      }
+    }
+
+    #banner-spacer {
+      @include flex($grow: 0, $shrink: 0, $basis: 45%);
+    }
+  }
+}
+
+@media (min-width: map-get($breakpoints, 'm')) {
+  #banner {
+    height             : 100%;
+  }
+
+  $triangleHeightTop   : calc(35vh + 10px);
+  $triangleHeightBottom: calc(45vh + 10px);
+  $triangleWidth       : calc(#{$triangleHeightTop} * .8 + 5px);
+
+  #banner-shapes-container {
+    @include flexbox;
+    @include flex-flow((column no-wrap));
+    height             : inherit;
+    width              : inherit;
+    overflow           : hidden;
 
     #banner-rectangle {
       @include flex($grow: 1, $shrink: 1, $basis: auto);
@@ -51,9 +122,9 @@
 
         vertical-align: middle;
 
-        border-top    : $triangleHeight solid transparent;
+        border-top    : $triangleHeightTop solid transparent;
         border-left   : $triangleWidth solid $primary;
-        border-bottom : $triangleHeight solid transparent;
+        border-bottom : $triangleHeightBottom solid transparent;
       }
 
       #banner-triangle-outline {
@@ -64,9 +135,9 @@
         width         : 0;
         height        : 0;
 
-        border-top    : calc(#{$triangleHeight} + 10px) solid transparent;
+        border-top    : calc(#{$triangleHeightTop} + 10px) solid transparent;
         border-left   : calc(#{$triangleWidth} + 5px) solid $secondary;
-        border-bottom : calc(#{$triangleHeight} + 10px) solid transparent;
+        border-bottom : calc(#{$triangleHeightBottom} + 10px) solid transparent;
       }
     }
 
@@ -75,7 +146,7 @@
       width           : 65%;
       height          : 100%;
 
-      background      : url("../assets/images/banner.jpg") no-repeat center;
+      background      : url("../assets/images/banner.jpg") no-repeat 30% center;
       background-size : cover;
     }
   }
