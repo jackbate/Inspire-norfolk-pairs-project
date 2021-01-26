@@ -224,82 +224,88 @@ header {
   background-size: cover;
 }
 
-#banner-content-container {
+#banner-content {
   position: absolute;
-  height: 0;
   z-index: 100;
-  width: 100%;
+  width: 100vw;
+  top: 20%;
 }
-#banner-content-container #banner-content-flexbox {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: column no-wrap;
-  flex-flow: column no-wrap;
-  margin: 120px auto auto;
+#banner-content * {
+  display: block;
+  color: white;
+  margin: 25px 15px auto 25px;
 }
 @media (min-width: 767px) {
-  #banner-content-container #banner-content-flexbox {
+  #banner-content * {
     box-sizing: content-box;
     max-width: 750px;
   }
 }
 @media (min-width: 768px) {
-  #banner-content-container #banner-content-flexbox {
+  #banner-content * {
     box-sizing: content-box;
     max-width: 750px;
   }
 }
 @media (min-width: 992px) {
-  #banner-content-container #banner-content-flexbox {
+  #banner-content * {
     box-sizing: content-box;
     max-width: 970px;
   }
 }
 @media (min-width: 1260px) {
-  #banner-content-container #banner-content-flexbox {
+  #banner-content * {
     box-sizing: content-box;
     max-width: 1200px;
   }
 }
-#banner-content-container #banner-content-flexbox #banner-content {
-  -ms-flex: 0 0 55%;
-  flex: 0 0 55%;
-  width: 55%;
-}
-#banner-content-container #banner-content-flexbox #banner-content * {
-  display: inline-block;
-  margin: 15px 0;
-  color: white;
-}
-#banner-content-container #banner-content-flexbox #banner-content h1, #banner-content-container #banner-content-flexbox #banner-content h2, #banner-content-container #banner-content-flexbox #banner-content h3 {
+#banner-content h1, #banner-content h2, #banner-content h3 {
   text-transform: uppercase;
 }
-#banner-content-container #banner-content-flexbox #banner-content h1 {
+#banner-content h1 {
   font-size: 3.25rem;
 }
-#banner-content-container #banner-content-flexbox #banner-content h2 {
+#banner-content h2 {
   font-size: 1.825rem;
   font-weight: 300;
   white-space: nowrap;
 }
-#banner-content-container #banner-content-flexbox #banner-content h3 {
+#banner-content h3 {
   font-size: 1.5rem;
   font-weight: 400;
   white-space: nowrap;
 }
-#banner-content-container #banner-content-flexbox #banner-content hr {
-  width: 430px;
-  height: 0;
+#banner-content #banner-underline {
+  display: block;
+  position: relative;
+  border: 1px solid transparent;
+}
+#banner-content #banner-underline hr {
+  position: absolute;
+  margin: 0;
+  width: 420px;
   border: 1px solid white;
 }
-#banner-content-container #banner-content-flexbox #banner-content p {
-  width: 80%;
+#banner-content #banner-summary {
+  display: block;
+}
+#banner-content #banner-summary p {
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0;
+  width: 420px;
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.5;
 }
-#banner-content-container #banner-content-flexbox #banner-content a {
+#banner-content #banner-button {
+  display: block;
+}
+#banner-content #banner-button a {
+  margin-left: 0;
+  margin-right: auto;
   padding: 10px 35px;
+  width: max-content;
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.25rem;
@@ -308,14 +314,14 @@ header {
   border: 2px solid white;
   border-radius: 5px;
 }
-#banner-content-container #banner-content-flexbox #banner-spacer {
-  -ms-flex: 0 0 45%;
-  flex: 0 0 45%;
-}
 
 @media (min-width: 768px) {
   #banner {
     height: 100%;
+  }
+
+  #banner-content * {
+    margin: 25px auto 25px;
   }
 
   #banner-shapes-container {
