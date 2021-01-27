@@ -22,7 +22,6 @@ body {
         "partials/common/cards",
         "partials/common/footer";
 
-
 #viewport {
   display           : -ms-grid;
   display           : grid;
@@ -40,7 +39,7 @@ body {
     -ms-grid-row    : 2;
     -ms-grid-column : 1;
 
-    height          : 450px;
+    height          : 495px;
     @media (min-width: map-get($breakpoints, 'm')) {
       height        : 700px;
     }

@@ -2,47 +2,57 @@
   position           : relative;
   background         : $primary url("../assets/images/banner.jpg") no-repeat center;
   background-size    : cover;
+
+  height: 495px;
+  @media (min-width: map-get($breakpoints, 'm')) {
+    height: 700px;
+  }
 }
 
 #banner-content {
   position           : absolute;
   z-index            : 100;
   width              : 100vw;
-  top                : 0;
+
+  /*
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;  */
 
   * {
     @include set-content-width;
     display          : block;
-    margin           : 25px auto 25px 15px;
+    margin           : 0 15px;
+    padding          : 12px 0;
     color            : $secondary;
   }
   h1, h2, h3 {
     text-transform   : uppercase;
+    border           : 1px solid transparent;
   }
   h1 {
-    font-size        : 2.625rem;
+    font-size        : 2.5rem;
+    margin-top       : 12px;
   }
-  h2 {
-    font-size        : 1.375rem;
-    font-weight      : 300;
-    white-space      : nowrap;
+
+  #banner-subheading {
+    display          : block;
+    border           : 1px solid transparent;
+    h2 {
+      margin         : 0 auto 0 0;
+      padding        : 0 0 24px 0;
+      width          : fit-content;
+      border-bottom  : 2px solid $secondary;
+      font-size      : 1.375rem;
+      font-weight    : 300;
+    }
   }
+
   h3 {
     font-size        : 1.125rem;
     font-weight      : 400;
-    white-space      : nowrap;
-  }
-
-  #banner-underline {
-    display          : block;
-    position         : relative;
-    border           : 1px solid transparent;  // prevents vertical margins collapsing
-    hr {
-      position       : absolute;
-      margin         : 0;
-      width          : 325px;
-      border         : 1px solid $secondary;
-    }
   }
 
   #banner-summary {
@@ -51,8 +61,9 @@
       margin-left    : 0;
       margin-right   : auto;
       padding        : 0;
-      width          : 65%;
+      // width          : 75%;
 
+      max-width      : 420px;
       font-size      : 1rem;
       font-weight    : 300;
       line-height    : 1.5;
@@ -91,7 +102,7 @@
     display           : block;
     position          : relative;
     min-width         : 50%;
-    max-width         : calc(100% - (450px * .35 + 5px));  // full width minus width of the triangle
+    max-width         : calc(100% - (495px * .35 + 5px));  // full width minus width of the triangle
     height            : 100%;
     background-color  : transparentize($secondary, .7);
 
@@ -109,9 +120,9 @@
       left           : 100%;
       width          : 0;
       height         : 0;
-      border-top     : calc(450px * .45 + 5px) solid transparent;
-      border-left    : calc(450px * .35) solid transparentize($primary, .2);
-      border-bottom  : calc(450px * .55 + 5px) solid transparent;
+      border-top     : calc(495px * .45 + 5px) solid transparent;
+      border-left    : calc(495px * .35) solid transparentize($primary, .2);
+      border-bottom  : calc(495px * .55 + 5px) solid transparent;
     }
 
     #banner-triangle-outline {
@@ -120,9 +131,9 @@
       left           : 100%;
       width          : 0;
       height         : 0;
-      border-top     : calc(450px * .45 + 15px) solid transparent;
-      border-left    : calc(450px * .35 + 5px) solid transparentize($secondary, .7);
-      border-bottom  : calc(450px * .55 + 15px) solid transparent;
+      border-top     : calc(495px * .45 + 15px) solid transparent;
+      border-left    : calc(495px * .35 + 5px) solid transparentize($secondary, .7);
+      border-bottom  : calc(495px * .55 + 15px) solid transparent;
     }
   }
 
@@ -142,18 +153,20 @@
     top          : 90px;
     * {
       margin     : 25px auto 25px;
+      padding    : 0;
     }
     h1 {
-      font-size  : 3.25rem;
+      font-size  : 3rem;
     }
-    h2 {
-      font-size  : 1.825rem;
+    #banner-subheading h2 {
+      font-size  : 1.625rem;
     }
     h3 {
-      font-size  : 1.5rem;
+      font-size  : 1.25rem;
     }
+
     #banner-summary p {
-      font-size  : 1.125rem;
+      font-size  : 1rem;
       width      : 400px;
     }
     #banner-button a {
@@ -164,8 +177,8 @@
 
   #banner-shapes-container {
     #banner-rectangle {
-      min-width       : 35%;
-      width           : 35%;
+      min-width       : 40%;
+      width           : 40%;
       background-color: $primary;
 
       #banner-rectangle-inner {
@@ -197,12 +210,13 @@
     h1 {
       font-size: 3.25rem;
     }
-    h2 {
+    #banner-subheading h2 {
       font-size: 1.825rem;
     }
     h3 {
       font-size: 1.5rem;
     }
+
     #banner-summary p {
       font-size: 1.125rem;
     }
