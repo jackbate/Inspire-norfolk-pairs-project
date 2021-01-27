@@ -140,7 +140,7 @@ header {
   color: #433172;
 }
 
-@media (min-width: 355px) {
+@media (min-width: 425px) {
   #header-nav ul li > a {
     font-size: 1rem;
   }
@@ -209,17 +209,29 @@ header {
   position: relative;
   background: #584096 url("../assets/images/banner.jpg") no-repeat center;
   background-size: cover;
+  height: 495px;
+}
+@media (min-width: 768px) {
+  #banner {
+    height: 700px;
+  }
 }
 
 #banner-content {
   position: absolute;
   z-index: 100;
   width: 100vw;
-  top: 0;
+  /*
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;  */
 }
 #banner-content * {
   display: block;
-  margin: 25px auto 25px 15px;
+  margin: 0 15px;
+  padding: 12px 0;
   color: white;
 }
 @media (min-width: 767px) {
@@ -248,30 +260,27 @@ header {
 }
 #banner-content h1, #banner-content h2, #banner-content h3 {
   text-transform: uppercase;
+  border: 1px solid transparent;
 }
 #banner-content h1 {
-  font-size: 2.625rem;
+  font-size: 2.5rem;
+  margin-top: 12px;
 }
-#banner-content h2 {
+#banner-content #banner-subheading {
+  display: block;
+  border: 1px solid transparent;
+}
+#banner-content #banner-subheading h2 {
+  margin: 0 auto 0 0;
+  padding: 0 0 24px 0;
+  width: fit-content;
+  border-bottom: 2px solid white;
   font-size: 1.375rem;
   font-weight: 300;
-  white-space: nowrap;
 }
 #banner-content h3 {
   font-size: 1.125rem;
   font-weight: 400;
-  white-space: nowrap;
-}
-#banner-content #banner-underline {
-  display: block;
-  position: relative;
-  border: 1px solid transparent;
-}
-#banner-content #banner-underline hr {
-  position: absolute;
-  margin: 0;
-  width: 325px;
-  border: 1px solid white;
 }
 #banner-content #banner-summary {
   display: block;
@@ -280,7 +289,7 @@ header {
   margin-left: 0;
   margin-right: auto;
   padding: 0;
-  width: 65%;
+  max-width: 420px;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
@@ -317,7 +326,7 @@ header {
   display: block;
   position: relative;
   min-width: 50%;
-  max-width: calc(100% - (450px * .35 + 5px));
+  max-width: calc(100% - (495px * .35 + 5px));
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -334,9 +343,9 @@ header {
   left: 100%;
   width: 0;
   height: 0;
-  border-top: calc(450px * .45 + 5px) solid transparent;
-  border-left: calc(450px * .35) solid rgba(88, 64, 150, 0.8);
-  border-bottom: calc(450px * .55 + 5px) solid transparent;
+  border-top: calc(495px * .45 + 5px) solid transparent;
+  border-left: calc(495px * .35) solid rgba(88, 64, 150, 0.8);
+  border-bottom: calc(495px * .55 + 5px) solid transparent;
 }
 #banner-shapes-container #banner-rectangle #banner-triangle-outline {
   position: absolute;
@@ -344,9 +353,9 @@ header {
   left: 100%;
   width: 0;
   height: 0;
-  border-top: calc(450px * .45 + 15px) solid transparent;
-  border-left: calc(450px * .35 + 5px) solid rgba(255, 255, 255, 0.3);
-  border-bottom: calc(450px * .55 + 15px) solid transparent;
+  border-top: calc(495px * .45 + 15px) solid transparent;
+  border-left: calc(495px * .35 + 5px) solid rgba(255, 255, 255, 0.3);
+  border-bottom: calc(495px * .55 + 15px) solid transparent;
 }
 #banner-shapes-container #banner-image {
   -ms-flex: 1 1 auto;
@@ -365,18 +374,19 @@ header {
   }
   #banner-content * {
     margin: 25px auto 25px;
+    padding: 0;
   }
   #banner-content h1 {
-    font-size: 3.25rem;
+    font-size: 3rem;
   }
-  #banner-content h2 {
-    font-size: 1.825rem;
+  #banner-content #banner-subheading h2 {
+    font-size: 1.625rem;
   }
   #banner-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
   #banner-content #banner-summary p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     width: 400px;
   }
   #banner-content #banner-button a {
@@ -385,8 +395,8 @@ header {
   }
 
   #banner-shapes-container #banner-rectangle {
-    min-width: 35%;
-    width: 35%;
+    min-width: 40%;
+    width: 40%;
     background-color: #584096;
   }
   #banner-shapes-container #banner-rectangle #banner-rectangle-inner {
@@ -412,7 +422,7 @@ header {
   #banner-content h1 {
     font-size: 3.25rem;
   }
-  #banner-content h2 {
+  #banner-content #banner-subheading h2 {
     font-size: 1.825rem;
   }
   #banner-content h3 {
@@ -437,7 +447,7 @@ header {
 #viewport #banner {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  height: 450px;
+  height: 495px;
 }
 @media (min-width: 768px) {
   #viewport #banner {
