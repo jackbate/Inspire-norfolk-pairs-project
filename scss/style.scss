@@ -11,6 +11,61 @@ body {
   overflow   : auto;                // Prevents horizontal scroll bar in IE
 }
 
+@mixin button-base-style($style: 'primary') {
+  /*!
+   * This mixin is intended to be applied to any anchor element which is to be
+   * styled as a button. Default button style is primary.
+   *
+   * Style 'primary': purple button, for use on a white background.
+   * Style 'secondary': white button, for use on a purple background.
+  */
+
+  display             : block;
+  box-sizing          : border-box;
+  padding             : 10px 35px;
+  width               : max-content;
+
+  font-size           : 1.125rem;
+  font-weight         : 300;
+  line-height         : 1.125rem;
+  text-transform      : capitalize;
+  text-decoration     : none;
+
+  border-radius       : 5px;
+  cursor              : pointer;
+
+  @if $style == 'primary' {
+    background-color  : $primary;
+    border            : 2px solid $primary;
+    color             : $secondary;
+
+    &:hover,
+    &:focus {
+      border          : 2px solid $primary-hover;
+      background-color: $primary-hover;
+    }
+  } @else if $style == 'secondary' {
+    background-color  : transparent;
+    border            : 2px solid $secondary;
+    color             : $secondary;
+
+    &:hover,
+    &:focus {
+      color           : $primary;
+      background-color: $secondary;
+    }
+  } @else {
+    @error "#{$style}: invalid button style. Please pass 'primary' or 'secondary'.";
+  }
+
+  &:active {
+    -moz-box-shadow   : inset 0px 0px 3px #333;
+         box-shadow   : inset 0px 0px 3px #333;
+  }
+
+  @content;
+}
+
 //==============================
 // Section styles
 //==============================

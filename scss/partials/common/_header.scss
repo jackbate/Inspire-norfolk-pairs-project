@@ -1,6 +1,6 @@
 header {
   background-color: $secondary;
-  max-height: max-content;
+  max-height      : max-content;
 }
 
 .content-wrapper {
@@ -10,21 +10,21 @@ header {
   @include justify-content($value: space-between);
   @include align-items($value: center);
 
-  margin: 0 auto;
-  height: 100%;
+  margin   : 0 auto;
+  height   : 100%;
 }
 
 #site-logo {
   @include flex($grow: 1, $shrink: 1, $basis: 0);
   @include order(1);
 
-  margin        : 0 15px;
-  padding       : 5px 0;
+  margin   : 0 15px;
+  padding  : 5px 0;
 
   max-width: 150px;
   min-width: 0;
   a > img {
-    width: 100%;
+    width  : 100%;
   }
 }
 
@@ -68,37 +68,41 @@ header {
 }
 
 #voip-button {
-  @include flex($grow: 0, $shrink: 0, $basis: auto);
-  @include order(3);
-  margin            : auto 15px;
-  padding           : 0 10px;
-  height            : 40px;
+  @include button-base-style($style: 'primary') {
+    @include flex($grow: 0, $shrink: 0, $basis: auto);
+    @include order(3);
 
-  line-height       : 40px;
-  font-size         : 1rem;
-  text-decoration   : none;
+    margin              : auto 15px;
+    padding             : 0 5px;
+    height              : 40px;
 
-  border            : 1px solid $primary;
-  border-radius     : 3px;
-  background-color  : $primary;
+    font-weight         : 600;
+    line-height         : 38px;
 
-  i {
-    display: none
-  }
-
-  span {
-    color           : $secondary;
-    font-weight     : 600;     // NTD: Check if a different font?
-  }
-
-  &:hover, &:focus, &:active {
-    background-color: $primary-hover;
-    border-color    : $primary-hover;
     i {
-      color         : $primary-hover;
+      display           : none;
+    }
+
+    @media (min-width: map-get($breakpoints, 'm')) {
+      margin-right      : 0;
+    }
+
+    @media (min-width: map-get($breakpoints, 'l')) {
+      i {
+        display         : inline;
+        background-color: $secondary;
+        color           : $primary;
+        border          : 8px solid $secondary;
+        border-radius   : 100%;
+
+        &:hover, &:focus, &:hover {
+          color         : $primary-hover;
+        }
+      }
     }
   }
 }
+
 
 @media (min-width: 425px) {
   #header-nav {
@@ -136,29 +140,12 @@ header {
       }
     }
   }
-
-  #voip-button {
-    margin-right: 0;
-  }
 }
 
 @media (min-width: map-get($breakpoints, 'l')) {
   #header-nav {
     margin-left: auto;
     margin-right: 15px;
-  }
-  #voip-button {
-    padding: 0 5px;
-    span {
-      padding-left    : 5px;
-    }
-    i {
-      display         : inline;
-      background-color: $secondary;
-      color           : $primary;
-      border          : 10px solid $secondary;
-      border-radius   : 100%;
-    }
   }
 }
 

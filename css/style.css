@@ -110,33 +110,64 @@ header {
 }
 
 #voip-button {
+  /*!
+   * This mixin is intended to be applied to any anchor element which is to be
+   * styled as a button. Default button style is primary.
+   *
+   * Style 'primary': purple button, for use on a white background.
+   * Style 'secondary': white button, for use on a purple background.
+  */
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 35px;
+  width: max-content;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #584096;
+  border: 2px solid #584096;
+  color: white;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   -ms-flex-order: 3;
   order: 3;
   margin: auto 15px;
-  padding: 0 10px;
+  padding: 0 5px;
   height: 40px;
-  line-height: 40px;
-  font-size: 1rem;
-  text-decoration: none;
-  border: 1px solid #584096;
-  border-radius: 3px;
-  background-color: #584096;
+  font-weight: 600;
+  line-height: 38px;
+}
+#voip-button:hover, #voip-button:focus {
+  border: 2px solid #433172;
+  background-color: #433172;
+}
+#voip-button:active {
+  -moz-box-shadow: inset 0px 0px 3px #333;
+  box-shadow: inset 0px 0px 3px #333;
 }
 #voip-button i {
   display: none;
 }
-#voip-button span {
-  color: white;
-  font-weight: 600;
+@media (min-width: 768px) {
+  #voip-button {
+    margin-right: 0;
+  }
 }
-#voip-button:hover, #voip-button:focus, #voip-button:active {
-  background-color: #433172;
-  border-color: #433172;
-}
-#voip-button:hover i, #voip-button:focus i, #voip-button:active i {
-  color: #433172;
+@media (min-width: 992px) {
+  #voip-button i {
+    display: inline;
+    background-color: white;
+    color: #584096;
+    border: 8px solid white;
+    border-radius: 100%;
+  }
+  #voip-button i:hover, #voip-button i:focus, #voip-button i:hover {
+    color: #433172;
+  }
 }
 
 @media (min-width: 425px) {
@@ -173,29 +204,11 @@ header {
   #header-nav ul li > a {
     font-size: 1.125rem;
   }
-
-  #voip-button {
-    margin-right: 0;
-  }
 }
 @media (min-width: 992px) {
   #header-nav {
     margin-left: auto;
     margin-right: 15px;
-  }
-
-  #voip-button {
-    padding: 0 5px;
-  }
-  #voip-button span {
-    padding-left: 5px;
-  }
-  #voip-button i {
-    display: inline;
-    background-color: white;
-    color: #584096;
-    border: 10px solid white;
-    border-radius: 100%;
   }
 }
 @media (min-width: 1260px) {
@@ -293,12 +306,16 @@ header {
   font-weight: 300;
   line-height: 1.5;
 }
-#banner-content #banner-button {
-  display: block;
-}
 #banner-content #banner-button a {
-  margin-left: 0;
-  margin-right: auto;
+  /*!
+   * This mixin is intended to be applied to any anchor element which is to be
+   * styled as a button. Default button style is primary.
+   *
+   * Style 'primary': purple button, for use on a white background.
+   * Style 'secondary': white button, for use on a purple background.
+  */
+  display: block;
+  box-sizing: border-box;
   padding: 10px 35px;
   width: max-content;
   font-size: 1.125rem;
@@ -306,8 +323,21 @@ header {
   line-height: 1.125rem;
   text-transform: capitalize;
   text-decoration: none;
-  border: 2px solid white;
   border-radius: 5px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  margin-left: 0;
+  margin-right: auto;
+}
+#banner-content #banner-button a:hover, #banner-content #banner-button a:focus {
+  color: #584096;
+  background-color: white;
+}
+#banner-content #banner-button a:active {
+  -moz-box-shadow: inset 0px 0px 3px #333;
+  box-shadow: inset 0px 0px 3px #333;
 }
 
 #banner-shapes-container {
