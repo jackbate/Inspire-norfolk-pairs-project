@@ -206,21 +206,8 @@ header {
   }
 }
 #banner {
-  height: 100%;
-}
-
-#banner-shapes-container {
-  height: inherit;
-  width: inherit;
-}
-#banner-shapes-container #banner-rectangle {
-  display: none;
   position: relative;
-}
-#banner-shapes-container #banner-image {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, transparent 0%, rgba(88, 64, 150, 0.6) 0%), url("../assets/images/banner.jpg") no-repeat center;
+  background: #584096 url("../assets/images/banner.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -228,12 +215,12 @@ header {
   position: absolute;
   z-index: 100;
   width: 100vw;
-  top: 20%;
+  top: 0;
 }
 #banner-content * {
   display: block;
+  margin: 25px auto 25px 15px;
   color: white;
-  margin: 25px 15px auto 25px;
 }
 @media (min-width: 767px) {
   #banner-content * {
@@ -263,15 +250,15 @@ header {
   text-transform: uppercase;
 }
 #banner-content h1 {
-  font-size: 3.25rem;
+  font-size: 2.625rem;
 }
 #banner-content h2 {
-  font-size: 1.825rem;
+  font-size: 1.375rem;
   font-weight: 300;
   white-space: nowrap;
 }
 #banner-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 400;
   white-space: nowrap;
 }
@@ -283,7 +270,7 @@ header {
 #banner-content #banner-underline hr {
   position: absolute;
   margin: 0;
-  width: 420px;
+  width: 325px;
   border: 1px solid white;
 }
 #banner-content #banner-summary {
@@ -293,8 +280,8 @@ header {
   margin-left: 0;
   margin-right: auto;
   padding: 0;
-  width: 420px;
-  font-size: 1.125rem;
+  width: 65%;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.5;
 }
@@ -306,69 +293,133 @@ header {
   margin-right: auto;
   padding: 10px 35px;
   width: max-content;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 300;
-  line-height: 1.25rem;
+  line-height: 1.125rem;
   text-transform: capitalize;
   text-decoration: none;
   border: 2px solid white;
   border-radius: 5px;
 }
 
+#banner-shapes-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column no-wrap;
+  flex-flow: column no-wrap;
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+}
+#banner-shapes-container #banner-rectangle {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: block;
+  position: relative;
+  min-width: 50%;
+  max-width: calc(100% - (450px * .35 + 5px));
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#banner-shapes-container #banner-rectangle #banner-rectangle-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(88, 64, 150, 0.8);
+}
+#banner-shapes-container #banner-rectangle #banner-triangle {
+  position: absolute;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-top: calc(450px * .45 + 5px) solid transparent;
+  border-left: calc(450px * .35) solid rgba(88, 64, 150, 0.8);
+  border-bottom: calc(450px * .55 + 5px) solid transparent;
+}
+#banner-shapes-container #banner-rectangle #banner-triangle-outline {
+  position: absolute;
+  top: -10px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-top: calc(450px * .45 + 15px) solid transparent;
+  border-left: calc(450px * .35 + 5px) solid rgba(255, 255, 255, 0.3);
+  border-bottom: calc(450px * .55 + 15px) solid transparent;
+}
+#banner-shapes-container #banner-image {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 40%;
+  height: 100%;
+}
+
 @media (min-width: 768px) {
   #banner {
-    height: 100%;
+    background: #584096 none no-repeat center;
   }
 
+  #banner-content {
+    top: 90px;
+  }
   #banner-content * {
     margin: 25px auto 25px;
   }
-
-  #banner-shapes-container {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-flow: column no-wrap;
-    flex-flow: column no-wrap;
-    height: inherit;
-    width: inherit;
-    overflow: hidden;
+  #banner-content h1 {
+    font-size: 3.25rem;
   }
+  #banner-content h2 {
+    font-size: 1.825rem;
+  }
+  #banner-content h3 {
+    font-size: 1.5rem;
+  }
+  #banner-content #banner-summary p {
+    font-size: 1.125rem;
+    width: 400px;
+  }
+  #banner-content #banner-button a {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+
   #banner-shapes-container #banner-rectangle {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    display: block;
-    position: relative;
+    min-width: 35%;
     width: 35%;
-    height: 100%;
     background-color: #584096;
   }
+  #banner-shapes-container #banner-rectangle #banner-rectangle-inner {
+    display: none;
+  }
   #banner-shapes-container #banner-rectangle #banner-triangle {
-    position: absolute;
-    left: 100%;
-    width: 0;
-    height: 0;
-    vertical-align: middle;
-    border-top: calc(35vh + 10px) solid transparent;
-    border-left: calc(calc(35vh + 10px) * .8 + 5px) solid #584096;
-    border-bottom: calc(45vh + 10px) solid transparent;
+    border-top: calc(700px * .45 + 5px) solid transparent;
+    border-left: calc(700px * .35) solid #584096;
+    border-bottom: calc(700px * .55 + 5px) solid transparent;
   }
   #banner-shapes-container #banner-rectangle #banner-triangle-outline {
-    position: absolute;
-    top: -10px;
-    left: 100%;
-    width: 0;
-    height: 0;
-    border-top: calc(calc(35vh + 10px) + 10px) solid transparent;
-    border-left: calc(calc(calc(35vh + 10px) * .8 + 5px) + 5px) solid white;
-    border-bottom: calc(calc(45vh + 10px) + 10px) solid transparent;
+    border-top: calc(700px * .45 + 15px) solid transparent;
+    border-left: calc(700px * .35 + 5px) solid white;
+    border-bottom: calc(700px * .55 + 15px) solid transparent;
   }
   #banner-shapes-container #banner-image {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
     width: 65%;
-    height: 100%;
     background: url("../assets/images/banner.jpg") no-repeat 30% center;
     background-size: cover;
+  }
+}
+@media (min-width: 992px) {
+  #banner-content h1 {
+    font-size: 3.25rem;
+  }
+  #banner-content h2 {
+    font-size: 1.825rem;
+  }
+  #banner-content h3 {
+    font-size: 1.5rem;
+  }
+  #banner-content #banner-summary p {
+    font-size: 1.125rem;
   }
 }
 #viewport {
@@ -386,7 +437,12 @@ header {
 #viewport #banner {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  height: 80vh;
+  height: 450px;
+}
+@media (min-width: 768px) {
+  #viewport #banner {
+    height: 700px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
