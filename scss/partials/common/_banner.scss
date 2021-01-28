@@ -1,12 +1,8 @@
 #banner {
   position           : relative;
+  height             : 495px;
   background         : $primary url("../assets/images/banner.jpg") no-repeat center;
   background-size    : cover;
-
-  height: 495px;
-  @media (min-width: map-get($breakpoints, 'm')) {
-    height: 700px;
-  }
 }
 
 #banner-content {
@@ -61,8 +57,6 @@
       margin-left    : 0;
       margin-right   : auto;
       padding        : 0;
-      // width          : 75%;
-
       max-width      : 420px;
       font-size      : 1rem;
       font-weight    : 300;
@@ -89,7 +83,7 @@
     @include flex($grow: 1, $shrink: 1, $basis: auto);
     display           : block;
     position          : relative;
-    min-width         : 50%;
+    min-width         : 70%;
     max-width         : calc(100% - (495px * .35 + 5px));  // full width minus width of the triangle
     height            : 100%;
     background-color  : transparentize($secondary, .7);
@@ -133,8 +127,21 @@
 }
 
 
+// Animations - only apply in mobile view
+@media (max-width: map-get($breakpoints, 'm')) {
+  #banner-shapes-container {
+    @include slide-in-from-left($duration: 1000ms);
+  }
+  #banner-content {
+    @include fade-element-in($duration: 800ms, $delay: 600ms);
+  }
+}
+
+
+// All other media queries for viewport sizes
 @media (min-width: map-get($breakpoints, 'm')) {
   #banner {
+    height       : 700px;
     background   : $primary none no-repeat center;
   }
   #banner-content {
