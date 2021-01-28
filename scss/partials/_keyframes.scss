@@ -1,0 +1,153 @@
+//===========================
+// SLIDE IN
+//===========================
+
+@-moz-keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-ms-keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-o-keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@mixin slide-in-from-left($duration: 1000ms, $delay: 0ms) {
+  $sliding-func    : cubic-bezier(.48,1.07,.75,.99);
+  -moz-animation   : $duration $sliding-func $delay 1 slideInFromLeft;
+  -ms-animation    : $duration $sliding-func $delay 1 slideInFromLeft;
+  -o-animation     : $duration $sliding-func $delay 1 slideInFromLeft;
+  -webkit-animation: $duration $sliding-func $delay 1 slideInFromLeft;
+  animation        : $duration $sliding-func $delay 1 slideInFromLeft;
+}
+
+//===========================
+// FADE IN
+//===========================
+
+@-moz-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin fade-element-in($duration: 1000ms, $delay: 0ms) {
+  opacity            : 0;         // Start on transparent
+  -moz-animation     : fade-in $duration ease-in-out $delay;
+  -ms-animation      : fade-in $duration ease-in-out $delay;
+  -o-animation       : fade-in $duration ease-in-out $delay;
+  -webkit-animation  : fade-in $duration ease-in-out $delay;
+  animation          : fade-in $duration ease-in-out $delay;
+
+  animation-fill-mode: forwards;  // Retain final fill state
+}
+
+
+//===========================
+// FADE OUT
+//===========================
+
+/*
+@keyframes fade-out {
+  100% {opacity: 0;}
+  0% {opacity: 1;}
+}
+
+@-moz-keyframes fade-in {
+  100% {opacity: 0;}
+  0% {opacity: 1;}
+}
+
+@-webkit-keyframes fade-in {
+  100% {opacity: 0;}
+  0% {opacity: 1;}
+}
+
+@-o-keyframes fade-in {
+  100% {opacity: 0;}
+  0% {opacity: 1;}
+}
+
+@-ms-keyframes fade-in {
+  100% {opacity: 0;}
+  0% {opacity: 1;}
+}
+
+@mixin fade-element-out {
+  animation           : fade-out ease-in-out .3s;
+  -webkit-animation   : fade-out ease-in-out .3s;
+  -moz-animation      : fade-out ease-in-out .3s;
+  -o-animation        : fade-out ease-in-out .3s;
+  -ms-animation       : fade-out ease-in-out .3s;
+
+  transition-delay    : .3s;
+  transition-property : visibility;
+  visibility          : hidden;
+}
+*/
