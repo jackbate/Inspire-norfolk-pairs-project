@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  overflow   : auto;                // Prevents horizontal scroll bar in IE
+  //overflow-x : auto;                // Prevents horizontal scroll bar in IE
 }
 
 @mixin button-base-style($style: 'primary') {
@@ -79,26 +79,26 @@ body {
         "partials/common/footer";
 
 #viewport {
-  display           : -ms-grid;
-  display           : grid;
-  -ms-grid-rows     : max-content auto;
-  grid-template-rows: max-content auto;
-  -ms-grid-columns  : 100vw;
+  display              : -ms-grid;
+  display              : grid;
+  -ms-grid-rows        : max-content auto;
+  grid-template-rows   : max-content auto;
+  -ms-grid-columns     : 100%;
+  grid-template-columns: 100%;
 
-  max-height        : 100vh;
-  overflow          : hidden;
+  overflow             : hidden;
 
   header {                             // IE needs grid items set explicitly
-    -ms-grid-row    : 1;               // in the grid.
-    -ms-grid-column : 1;
+    -ms-grid-row       : 1;            // in the grid.
+    -ms-grid-column    : 1;
   }
   #banner {
-    -ms-grid-row    : 2;
-    -ms-grid-column : 1;
+    -ms-grid-row       : 2;
+    -ms-grid-column    : 1;
 
-    height          : 495px;
+    height             : 495px;
     @media (min-width: map-get($breakpoints, 'm')) {
-      height        : 700px;
+      height           : 700px;
     }
   }
 }

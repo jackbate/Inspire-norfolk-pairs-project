@@ -8,7 +8,7 @@
 #banner-content {
   position           : absolute;
   z-index            : 100;
-  width              : 100vw;
+  width              : 100%;
 
   /*
   display: flex;
@@ -21,7 +21,7 @@
     @include set-content-width;
     display          : block;
     margin           : 0 15px;
-    padding          : 12px 0;
+    padding          : 8px 0;
     color            : $secondary;
   }
   h1, h2, h3 {
@@ -29,7 +29,7 @@
     border           : 1px solid transparent;
   }
   h1 {
-    font-size        : 2.5rem;
+    font-size        : 2.25rem;
     margin-top       : 12px;
   }
 
@@ -41,7 +41,7 @@
       padding        : 0 0 24px 0;
       width          : fit-content;
       border-bottom  : 2px solid $secondary;
-      font-size      : 1.375rem;
+      font-size      : 1.25rem;
       font-weight    : 300;
     }
   }
@@ -83,7 +83,7 @@
     @include flex($grow: 0, $shrink: 0, $basis: auto);
     display           : block;
     position          : relative;
-    width: calc(100vw - 495px * .35 - 5px);  // Full width minus triangle
+    width             : calc(98vw - 495px * .35 - 5px);  // Full width minus triangle
 
     height            : 100%;
     background-color  : transparentize($secondary, .7);
@@ -92,7 +92,7 @@
       position        : absolute;
       top             : 0;
       bottom          : 0;
-      width           : calc(100vw - 495px * .35 - 5px);
+      width           : calc(98vw - 495px * .35 - 5px);
       height          : 100%;
       background-color: transparentize($primary, .2);
     }
@@ -100,7 +100,7 @@
     #banner-triangle {
       position       : absolute;
       // Position at LHS of banner less the triangle's width
-      left           : calc(100vw - 495px * .35 - 5px);
+      left           : calc(98vw - (495px * .35) - 5px);
       width          : 0;
       height         : 0;
       border-top     : calc(495px * .45 + 5px) solid transparent;
@@ -112,7 +112,7 @@
       position       : absolute;
       top            : -10px;
       // Position at LHS of banner less the triangle's width
-      left: calc(100vw - 495px * .35 - 5px);
+      left           : calc(98vw - (495px * .35) - 5px);
       width          : 0;
       height         : 0;
       border-top     : calc(495px * .45 + 15px) solid transparent;
