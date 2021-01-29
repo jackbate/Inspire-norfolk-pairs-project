@@ -92,11 +92,11 @@
   overflow            : hidden;
 
   #banner-rectangle {
-    @include flex($grow: 1, $shrink: 1, $basis: auto);
+    @include flex($grow: 0, $shrink: 0, $basis: auto);
     display           : block;
     position          : relative;
-    min-width         : 70%;
-    max-width         : calc(100% - (495px * .35 + 5px));  // full width minus width of the triangle
+    width: calc(100vw - 495px * .35 - 5px);  // Full width minus triangle
+
     height            : 100%;
     background-color  : transparentize($secondary, .7);
 
@@ -104,14 +104,15 @@
       position        : absolute;
       top             : 0;
       bottom          : 0;
-      width           : 100%;
+      width           : calc(100vw - 495px * .35 - 5px);
       height          : 100%;
       background-color: transparentize($primary, .2);
     }
 
     #banner-triangle {
       position       : absolute;
-      left           : 100%;
+      // Position at LHS of banner less the triangle's width
+      left           : calc(100vw - 495px * .35 - 5px);
       width          : 0;
       height         : 0;
       border-top     : calc(495px * .45 + 5px) solid transparent;
@@ -122,7 +123,8 @@
     #banner-triangle-outline {
       position       : absolute;
       top            : -10px;
-      left           : 100%;
+      // Position at LHS of banner less the triangle's width
+      left: calc(100vw - 495px * .35 - 5px);
       width          : 0;
       height         : 0;
       border-top     : calc(495px * .45 + 15px) solid transparent;
@@ -140,7 +142,7 @@
 
 
 // Animations - only apply in mobile view
-@media (max-width: map-get($breakpoints, 'm')) {
+@media (max-width: map-get($breakpoints, 's')) {
   #banner-shapes-container {
     @include slide-in-from-left($duration: 1000ms);
   }
@@ -184,6 +186,7 @@
 
   #banner-shapes-container {
     #banner-rectangle {
+      @include flex($grow: 1, $shrink: 1, $basis: auto);
       min-width       : 40%;
       width           : 40%;
       background-color: $primary;
@@ -192,11 +195,13 @@
         display       : none;
       }
       #banner-triangle {
+        left          : 100%;
         border-top    : calc(700px * .45 + 5px) solid transparent;
         border-left   : calc(700px * .35) solid $primary;
         border-bottom : calc(700px * .55 + 5px) solid transparent;
       }
       #banner-triangle-outline {
+        left          : 100%;
         border-top    : calc(700px * .45 + 15px) solid transparent;
         border-left   : calc(700px * .35 + 5px) solid $secondary;
         border-bottom : calc(700px * .55 + 15px) solid transparent;
