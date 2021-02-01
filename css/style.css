@@ -661,6 +661,197 @@ header {
   background-color: #584096;
 }
 
+#contact-form {
+  width: 100%;
+}
+
+.form-inner, .form-title {
+  margin: 0 auto;
+}
+@media (min-width: 767px) {
+  .form-inner, .form-title {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  .form-inner, .form-title {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .form-inner, .form-title {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  .form-inner, .form-title {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+
+.form-title {
+  box-sizing: border-box;
+  display: block;
+  padding: 35px 0;
+}
+
+.form-inner {
+  padding: 35px 15px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: max-content;
+  grid-template-rows: repeat(8, max-content);
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
+}
+.form-inner-name {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.form-inner-email {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+.form-inner-phone {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+.form-inner-radio {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+}
+.form-inner-text {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+.form-inner-gdpr {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+}
+.form-inner-recaptcha {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+}
+.form-inner-submit {
+  -ms-grid-row: 8;
+  -ms-grid-column: 1;
+}
+
+.form-label {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.required::after {
+  content: " *";
+  color: "red";
+}
+
+.form-input-field {
+  margin: 0 0 20px;
+  overflow: hidden;
+}
+
+.form-input-field label {
+  position: relative;
+}
+.form-input-field label .focus-bar {
+  position: absolute;
+  transform: translateX(-100%);
+  bottom: -9px;
+  height: 2px;
+  width: 100vw;
+  background-color: #584096;
+}
+
+.text-input {
+  height: 35px;
+  width: 100%;
+  border: 0;
+  background-color: rgba(88, 64, 150, 0.25);
+}
+.text-input:focus {
+  outline: none;
+}
+.text-input:focus + .focus-bar {
+  -moz-animation: 1000ms cubic-bezier(0.48, 1.07, 0.75, 0.99) 0ms 1 slideInFromLeft;
+  -ms-animation: 1000ms cubic-bezier(0.48, 1.07, 0.75, 0.99) 0ms 1 slideInFromLeft;
+  -o-animation: 1000ms cubic-bezier(0.48, 1.07, 0.75, 0.99) 0ms 1 slideInFromLeft;
+  -webkit-animation: 1000ms cubic-bezier(0.48, 1.07, 0.75, 0.99) 0ms 1 slideInFromLeft;
+  animation: 1000ms cubic-bezier(0.48, 1.07, 0.75, 0.99) 0ms 1 slideInFromLeft;
+  animation-fill-mode: forwards;
+}
+
+#form-radio input {
+  display: inline-block;
+  padding: 0 5px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+#form-radio input ~ .radio-label {
+  display: inline-block;
+  color: #666;
+  font-size: 1.125rem;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: middle;
+}
+
+#form-radio-business:checked + label {
+  color: #584096;
+}
+
+#form-radio-young-person:checked + label {
+  color: #584096;
+}
+
+#form-radio-other:checked + label {
+  color: #584096;
+}
+
+#form-submit-button {
+  /*!
+   * This mixin is intended to be applied to any anchor element which is to be
+   * styled as a button. Default button style is primary.
+   *
+   * Style 'primary': purple button, for use on a white background.
+   * Style 'secondary': white button, for use on a purple background.
+  */
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 35px;
+  width: max-content;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #584096;
+  border: 2px solid #584096;
+  color: white;
+}
+#form-submit-button:hover, #form-submit-button:focus {
+  border: 2px solid #433172;
+  background-color: #433172;
+}
+#form-submit-button:active {
+  -moz-box-shadow: inset 0px 0px 3px #333;
+  box-shadow: inset 0px 0px 3px #333;
+}
+#form-submit-button:active {
+  outline: none;
+}
+
 #viewport {
   display: -ms-grid;
   display: grid;

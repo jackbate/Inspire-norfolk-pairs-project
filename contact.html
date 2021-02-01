@@ -75,8 +75,63 @@
 
     <main>
       <section id="contact-form">
-        <div id="contact-form-inner">
-        </div>
+        <h2 class="form-title">Get In Touch</h2>
+        <form id="form" class="form-inner" method="post">
+
+          <div id="form-name" class="form-input-field">
+            <label>
+              <span class="form-label required">Name:</span>
+              <input id="form-name-input" class="text-input" type="text" name="name" placeholder="Jane Smith">
+              <div class="focus-bar"></div>
+            </label>
+          </div>
+
+          <div id="form-email" class="form-input-field">
+            <label>
+              <span class="form-label required">Email Address:</span>
+              <input id="form-email-input" class="text-input" type="email" name="email" placeholder="example@domain.com">
+              <div class="focus-bar"></div>
+            </label>
+          </div>
+
+          <div id="form-phone" class="form-input-field">
+            <label>
+              <span class="form-label">Contact Number:</span>
+              <input id="form-phone-input" class="text-input" type="tel" name="phone" placeholder="07123456789">
+              <div class="focus-bar"></div>
+            </label>
+          </div>
+
+          <div id="form-radio">
+            <label>
+              <span class="form-label required">What are you enquiring about?</span>  <!-- Change -->
+              <input type="radio" name="enquiryType" value="business" id="form-radio-business"><label class="radio-label" for="form-radio-business">Business enquiring about apprentices</label></br>
+              <input type="radio" name="enquiryType" value="young-person" id="form-radio-young-person"><label class="radio-label" for="form-radio-young-person">Young person enquiring about apprenticeships</label></br>
+              <input type="radio" name="enquiryType" value="other" id="form-radio-other"><label class="radio-label" for="form-radio-other">Something else</label>
+            </label>
+          </div>
+
+          <div id="form-text">
+            <label>
+              <span class="form-label required">Message:</span>
+              <textarea id="form-text-input" type="text" name="message"></textarea>
+            </label>
+          </div>
+
+          <div id="form-gdpr">
+            <input id="form-gdpr-checkbox" type="checkbox" name="confirmGDPR">
+            <p id="form-gdpr-statement">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div> <!-- GDPR -->
+
+          <div id="form-recaptcha">
+            RECAPTCHA PLACEHOLDER
+          </div> <!-- ReCaptcha -->
+
+          <div id="form-submit">
+            <button id="form-submit-button">Submit enquiry</button>
+          </div> <!-- Submit -->
+
+        </form>
       </section> <!-- #section-form -->
     </main>
 

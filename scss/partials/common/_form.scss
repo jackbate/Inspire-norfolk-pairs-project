@@ -1,0 +1,164 @@
+#contact-form {
+  width: 100%;
+}
+
+.form-inner, .form-title {
+  @include set-content-width;
+  margin: 0 auto;
+}
+
+.form-title {
+  box-sizing: border-box;
+  display: block;
+  padding: 35px 0;
+}
+
+.form-inner {
+  padding              : 35px 15px;
+
+  display              : -ms-grid;
+  display              : grid;
+  -ms-grid-rows        : max-content;
+  grid-template-rows   : repeat(8, max-content);
+  -ms-grid-columns     : 100%;
+  grid-template-columns: 100%;
+
+// IE needs grid items set explicitly in the grid.
+
+  &-name {
+    -ms-grid-row   : 1;
+    -ms-grid-column: 1;
+  }
+  &-email {
+    -ms-grid-row   : 2;
+    -ms-grid-column: 1;
+  }
+  &-phone {
+    -ms-grid-row   : 3;
+    -ms-grid-column: 1;
+  }
+  &-radio {
+    -ms-grid-row   : 4;
+    -ms-grid-column: 1;
+  }
+  &-text {
+    -ms-grid-row   : 5;
+    -ms-grid-column: 1;
+  }
+  &-gdpr {
+    -ms-grid-row   : 6;
+    -ms-grid-column: 1;
+  }
+  &-recaptcha {
+    -ms-grid-row   : 7;
+    -ms-grid-column: 1;
+  }
+  &-submit {
+    -ms-grid-row   : 8;
+    -ms-grid-column: 1;
+  }
+
+}
+
+//========
+// LABELS
+//========
+
+.form-label {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: $body-copy;
+}
+.required::after {
+  content: " *";
+  color  : "red";  // This isn't taking place, and isn't due to the above declarations
+}
+
+//============
+// TEXT INPUT
+//============
+
+.form-input-field {
+  margin: 0 0 20px;
+
+  overflow: hidden;
+}
+
+.form-input-field label {
+  position: relative;
+
+  .focus-bar {
+    position: absolute;
+    transform: translateX(-100%);
+    bottom: -9px;
+    height: 2px;
+    width: 100vw;
+    background-color: $primary;
+  }
+}
+
+.text-input {
+  height: 35px;
+  width: 100%;
+
+  border: 0;
+  background-color: transparentize($primary, .75);
+
+  &:focus {
+    outline: none;
+    + .focus-bar {
+      @include slide-in-from-left($retain: "true");
+    }
+  }
+}
+
+//=======
+// RADIO
+//=======
+
+#form-radio {
+  $radio-button-height: 18px;
+
+  input {
+    display: inline-block;
+    padding: 0 5px;
+    width  : $radio-button-height;
+    height : $radio-button-height;
+    cursor : pointer;
+
+    ~ .radio-label {
+      display       : inline-block;
+      color         : $body-copy;
+      font-size     : 1.125rem;
+      height        : $radio-button-height;
+      line-height   : $radio-button-height;
+      vertical-align: middle;
+    }
+  }
+}
+
+$radio-buttons : ("form-radio-business", "form-radio-young-person", "form-radio-other");
+
+@each $radio in $radio-buttons {
+  ##{$radio}:checked + label {
+    color: $primary;
+  }
+}
+
+
+
+
+
+//========
+// BUTTON
+//========
+
+#form-submit-button {
+  @include button-base-style {
+    &:active {
+      outline: none;
+    }
+  }
+}
