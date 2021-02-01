@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
 
+    <!-- ReCaptcha from Google -->
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <!-- Normalize stylesheet -->
     <link rel="stylesheet" href="css/normalize.css">
 
@@ -104,38 +107,56 @@
 
           <div id="form-radio">
             <label>
-              <span class="form-label required">What are you enquiring about?</span>  <!-- Change -->
-              <input type="radio" name="enquiryType" value="business" id="form-radio-business"><label class="radio-label" for="form-radio-business">Business enquiring about apprentices</label></br>
-              <input type="radio" name="enquiryType" value="young-person" id="form-radio-young-person"><label class="radio-label" for="form-radio-young-person">Young person enquiring about apprenticeships</label></br>
-              <input type="radio" name="enquiryType" value="other" id="form-radio-other"><label class="radio-label" for="form-radio-other">Something else</label>
+              <span class="form-label required">What are you enquiring about:</span>  <!-- Change -->
+              <div>
+                <input type="radio" name="enquiryType" value="business" id="form-radio-business">
+                <label class="radio-label" for="form-radio-business">Business enquiring about apprentices</label>
+              </div>
+              <div>
+                <input type="radio" name="enquiryType" value="young-person" id="form-radio-young-person">
+                <label class="radio-label" for="form-radio-young-person">Young person enquiring about apprenticeships</label>
+              </div>
+              <div>
+                <input type="radio" name="enquiryType" value="other" id="form-radio-other">
+                <label class="radio-label" for="form-radio-other">Something else</label>
+              </div>
             </label>
           </div>
 
           <div id="form-text">
             <label>
               <span class="form-label required">Message:</span>
-              <textarea id="form-text-input" type="text" name="message"></textarea>
+              <textarea id="form-text-input" class="text-input" type="text" name="message" placeholder="Lorem ipsum..."></textarea>
+              <div class="focus-bar"></div>
             </label>
           </div>
 
           <div id="form-gdpr">
             <input id="form-gdpr-checkbox" type="checkbox" name="confirmGDPR">
-            <p id="form-gdpr-statement">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div> <!-- GDPR -->
-
-          <div id="form-recaptcha">
-            RECAPTCHA PLACEHOLDER
-          </div> <!-- ReCaptcha -->
+            <label id="form-gdpr-statement" for="form-gdpr-checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</label>
+          </div>
 
           <div id="form-submit">
-            <button id="form-submit-button">Submit enquiry</button>
-          </div> <!-- Submit -->
+            <button
+              id="form-submit-button"
+              class="g-recaptcha"
+              data-sitekey="reCAPTCHA_site_key"
+              data-callback='onSubmit'
+              data-action='submit'>Submit enquiry</button>
+          </div>
 
         </form>
       </section> <!-- #section-form -->
+      
     </main>
 
     <footer>
     </footer>
+
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
   </body>
 </html>
