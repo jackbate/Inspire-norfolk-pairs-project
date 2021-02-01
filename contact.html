@@ -21,11 +21,63 @@
     <!-- Author styles -->
     <link rel="stylesheet" href="css/style.css">
   </head>
+
   <body>
-    <header>
-    </header>
+
+    <div id="viewport">
+
+      <header>
+        <div class="content-wrapper"> <!-- .content-wrapper to set size using mixin (see breakpoints partial) -->
+          <div id="site-logo"> <!-- Flex-Item 1 -->
+            <a href="index.html"><img src="assets/images/logo.jpeg"></a>
+          </div>
+          <nav role="navigation" id="header-nav"> <!-- Flex-Item 2 -->
+            <ul>
+              <li><a href="#" class="header-nav-text">About us</a></li>
+              <li><a href="#" class="header-nav-text">Our services</a></li>
+              <li><a href="#" class="header-nav-text">Testimonials</a></li>
+              <li><a href="#" class="header-nav-text">Contact us</a></li>
+            </ul>
+          </nav>
+          <a href="tel:+441603670909" id="voip-button"> <!-- Flex-Item 3 -->
+            <i class="fas fa-phone-alt"></i>
+            01603 670909
+          </a>
+        </div> <!-- .content-wrapper -->
+      </header>
+
+      <section class="banner" id="banner-contact">
+        <div id="banner-content">
+          <h1>Get in touch</h1>
+          <div id="banner-subheading">
+            <h2>Contact Us Today</h2>
+          </div>
+          <h3>Lorem ipsum dolor sit amet</h3>
+          <div id="banner-summary">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+          <div id="banner-button">
+            <a href="#">Contact us today</a>
+          </div>
+        </div>
+
+        <div id="banner-overflow"></div>
+
+        <div id="banner-shapes-container">
+          <div id="banner-rectangle">
+            <div id="banner-rectangle-inner"></div>
+            <div id="banner-triangle-outline"></div>
+            <div id="banner-triangle"></div>
+          </div>
+          <div id="banner-image"></div>
+        </div>
+      </section> <!-- #banner -->
 
     <main>
+      <section id="contact-form">
+        <div id="contact-form-inner">
+        </div>
+      </section> <!-- #section-form -->
     </main>
 
     <footer>

@@ -1,4 +1,4 @@
-#banner {
+.banner {
   position           : relative;
   height             : 495px;
   background         : $primary url("../assets/images/banner.jpg") no-repeat center;
@@ -8,8 +8,8 @@
 #banner-content {
   position           : absolute;
   z-index            : 100;
+  top: 0;
   width              : 100%;
-
   /*
   display: flex;
   flex-direction: column;

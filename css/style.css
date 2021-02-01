@@ -130,7 +130,6 @@
 */
 body {
   font-family: "Montserrat", sans-serif;
-  overflow: auto;
 }
 
 header {
@@ -335,7 +334,7 @@ header {
     margin-right: 45px;
   }
 }
-#banner {
+.banner {
   position: relative;
   height: 495px;
   background: #584096 url("../assets/images/banner.jpg") no-repeat center;
@@ -345,7 +344,8 @@ header {
 #banner-content {
   position: absolute;
   z-index: 100;
-  width: 100vw;
+  top: 0;
+  width: 100%;
   /*
   display: flex;
   flex-direction: column;
@@ -356,7 +356,7 @@ header {
 #banner-content * {
   display: block;
   margin: 0 15px;
-  padding: 12px 0;
+  padding: 8px 0;
   color: white;
 }
 @media (min-width: 767px) {
@@ -388,7 +388,7 @@ header {
   border: 1px solid transparent;
 }
 #banner-content h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   margin-top: 12px;
 }
 #banner-content #banner-subheading {
@@ -400,7 +400,7 @@ header {
   padding: 0 0 24px 0;
   width: fit-content;
   border-bottom: 2px solid white;
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-weight: 300;
 }
 #banner-content h3 {
@@ -467,7 +467,7 @@ header {
   flex: 0 0 auto;
   display: block;
   position: relative;
-  width: calc(100vw - 495px * .35 - 5px);
+  width: calc(98vw - 495px * .35 - 5px);
   height: 100%;
   background-color: rgba(255, 255, 255, 0.3);
 }
@@ -475,13 +475,13 @@ header {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: calc(100vw - 495px * .35 - 5px);
+  width: calc(98vw - 495px * .35 - 5px);
   height: 100%;
   background-color: rgba(88, 64, 150, 0.8);
 }
 #banner-shapes-container #banner-rectangle #banner-triangle {
   position: absolute;
-  left: calc(100vw - 495px * .35 - 5px);
+  left: calc(98vw - (495px * .35) - 5px);
   width: 0;
   height: 0;
   border-top: calc(495px * .45 + 5px) solid transparent;
@@ -491,7 +491,7 @@ header {
 #banner-shapes-container #banner-rectangle #banner-triangle-outline {
   position: absolute;
   top: -10px;
-  left: calc(100vw - 495px * .35 - 5px);
+  left: calc(98vw - (495px * .35) - 5px);
   width: 0;
   height: 0;
   border-top: calc(495px * .45 + 15px) solid transparent;
@@ -658,7 +658,6 @@ header {
 .cards-container {
   display: block;
   height: 50px;
-  width: 100vw;
   background-color: #584096;
 }
 
@@ -667,8 +666,8 @@ header {
   display: grid;
   -ms-grid-rows: max-content auto;
   grid-template-rows: max-content auto;
-  -ms-grid-columns: 100vw;
-  max-height: 100vh;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
   overflow: hidden;
 }
 #viewport header {
