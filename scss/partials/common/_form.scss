@@ -92,9 +92,11 @@
   font-weight: 500;
   color      : $body-copy;
 }
+
 .required::after {
+  color      : $error;
+  font-size  : inherit;
   content    : " *";
-  color      : "red";  // NTD This isn't taking place, and isn't due to the above declarations
 }
 
 //============
@@ -124,7 +126,7 @@
   padding         : 10px;
   background-color: transparentize($primary, .8);
   border          : 0;
-  color: darken($body-copy, 15);
+  color           : darken($body-copy, 15);
 
   &:focus {
     outline       : none;

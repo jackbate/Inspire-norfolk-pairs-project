@@ -761,8 +761,9 @@ header {
 }
 
 .required::after {
+  color: #e52226;
+  font-size: inherit;
   content: " *";
-  color: "red";
 }
 
 .form-input-field {
