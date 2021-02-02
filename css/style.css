@@ -432,6 +432,13 @@ header {
   font-weight: 300;
   line-height: 1.5;
 }
+#banner-content #banner-summary p a {
+  display: inline;
+  text-decoration: none;
+}
+#banner-content #banner-summary p a:hover, #banner-content #banner-summary p a:focus, #banner-content #banner-summary p a:active {
+  text-decoration: underline;
+}
 #banner-content #banner-button a {
   /*!
    * This mixin is intended to be applied to any anchor element which is to be
