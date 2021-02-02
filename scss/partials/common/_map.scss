@@ -1,21 +1,21 @@
 #map {
   height          : max-content;
   padding         : 35px 0;
-  background-color: $primary;
+  background-color: $secondary;
 
   &-title {
     @include set-content-width;
     display       : block;
     box-sizing    : border-box;
     margin        : 35px auto 35px auto;
-    color         : $secondary;
+    color         : $primary;
     text-transform: capitalize;
   }
 
   &-address {
     @include set-content-width;
     margin    : 0 auto;
-    color     : $secondary;
+    color     : $body-copy;
     font-style: normal;
     p {
       margin  : 0;

@@ -993,13 +993,13 @@ header {
 #map {
   height: max-content;
   padding: 35px 0;
-  background-color: #584096;
+  background-color: white;
 }
 #map-title {
   display: block;
   box-sizing: border-box;
   margin: 35px auto 35px auto;
-  color: white;
+  color: #584096;
   text-transform: capitalize;
 }
 @media (min-width: 767px) {
@@ -1028,7 +1028,7 @@ header {
 }
 #map-address {
   margin: 0 auto;
-  color: white;
+  color: #666;
   font-style: normal;
 }
 @media (min-width: 767px) {
@@ -1097,6 +1097,71 @@ header {
   #map-inner, #map-title, #map-address {
     padding: 0;
   }
+}
+
+#socials-section {
+  background-color: #584096;
+  border: 1px solid transparent;
+}
+#socials-section-inner {
+  margin: 35px auto;
+  border: 1px solid transparent;
+}
+@media (min-width: 767px) {
+  #socials-section-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  #socials-section-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #socials-section-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  #socials-section-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+#socials-section-title {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  color: white;
+  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  #socials-section-title {
+    padding: 0;
+  }
+}
+#socials-section #socials-section-buttons {
+  width: max-content;
+  margin: 0 auto 20px;
+}
+#socials-section .socials-section-button {
+  display: inline-block;
+  margin: 0 5px;
+  height: 35px;
+  width: 35px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #584096;
+  background-color: white;
+  border: 5px solid white;
+  border-radius: 100%;
+  cursor: pointer;
+}
+#socials-section .socials-section-button i {
+  display: inline-block;
 }
 
 #viewport {

@@ -1,0 +1,47 @@
+#socials-section {
+  background-color: $primary;
+  border: 1px solid transparent;
+
+  &-inner {
+    @include set-content-width;
+    margin: 35px auto;
+    border: 1px solid transparent;
+  }
+
+  &-title {
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    color: $secondary;
+    padding: 0 15px;
+    @media (min-width: map-get($breakpoints, 'm')) {
+      padding: 0;
+    }
+  }
+
+  #socials-section-buttons {
+    width           : max-content;
+    margin          : 0 auto 20px;
+  }
+
+  .socials-section-button {
+    display         : inline-block;
+    i {
+      display       : inline-block;
+    }
+
+    margin          : 0 5px;
+    height          : 35px;
+    width           : 35px;
+
+    line-height     : 35px;
+    text-align      : center;
+    font-size       : 1.5rem;
+    color           : $primary;
+
+    background-color: $secondary;
+    border          : 5px solid $secondary;
+    border-radius   : 100%;
+
+    cursor          : pointer;
+  }
+}
