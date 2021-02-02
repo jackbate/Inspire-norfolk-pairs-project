@@ -11,12 +11,9 @@
   box-sizing: border-box;
   margin    : 35px auto 0 auto;
   padding   : 0 0 0 15px;
-
-  // NTD - Merge media queries
   @media (min-width: map-get($breakpoints, 'm')) {
     padding : 0;
   }
-
   color     : $primary;
 }
 
@@ -30,8 +27,6 @@
 
   margin               : 0 auto;
   padding              : 35px 15px;
-
-  // NTD - Merge media queries
   @media (min-width: map-get($breakpoints, 'm')) {
     padding            : 35px 0;
   }
@@ -66,7 +61,6 @@
     -ms-grid-row   : 7;
     -ms-grid-column: 1;
   }
-
 }
 
 #form {
@@ -88,9 +82,12 @@
 .form-label {
   display    : block;
   margin     : 0 0 10px;
-  font-size  : 1.125rem;
-  font-weight: 500;
   color      : $body-copy;
+  font-weight: 500;
+  font-size  : 1rem;
+  @media (min-width: map-get($breakpoints, 'm')) {
+    font-size: 1.125rem;
+  }
 }
 
 .required::after {
@@ -127,6 +124,8 @@
   background-color: transparentize($primary, .8);
   border          : 0;
   color           : darken($body-copy, 15);
+
+  font-size: 1rem;
 
   &:focus {
     outline       : none;
@@ -186,10 +185,13 @@ $radio-height: 18px;
     .radio-label {
       @include flex($grow: 1, $shrink: 1, $basis: auto);
       display             : inline-block;
-      margin              : 8px 0;
+      padding             : 8px 0;
       height              : max-content;
       color               : $body-copy;
-      font-size           : 1.125rem;
+      font-size           : 1rem;
+      @media (min-width: map-get($breakpoints, 'm')) {
+        font-size         : 1.125rem;
+      }
     }
   }
 }

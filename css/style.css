@@ -755,9 +755,14 @@ header {
 .form-label {
   display: block;
   margin: 0 0 10px;
-  font-size: 1.125rem;
-  font-weight: 500;
   color: #666;
+  font-weight: 500;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .form-label {
+    font-size: 1.125rem;
+  }
 }
 
 .required::after {
@@ -790,6 +795,7 @@ header {
   background-color: rgba(88, 64, 150, 0.2);
   border: 0;
   color: #404040;
+  font-size: 1rem;
 }
 .text-input:focus {
   outline: none;
@@ -846,10 +852,15 @@ header {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   display: inline-block;
-  margin: 8px 0;
+  padding: 8px 0;
   height: max-content;
   color: #666;
-  font-size: 1.125rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  #form-radio label > div .radio-label {
+    font-size: 1.125rem;
+  }
 }
 
 #form-radio-business:checked + .radio-label {
