@@ -338,13 +338,20 @@ header {
 .banner {
   position: relative;
   height: 495px;
-  background: #584096 url("../assets/images/banner.jpg") no-repeat center;
   background-size: cover;
 }
 @media (min-width: 768px) {
   .banner {
     height: 700px;
   }
+}
+
+#banner-index {
+  background: #584096 url("../assets/images/banner-index.jpg") no-repeat center;
+}
+
+#banner-contact {
+  background: #584096 url("../assets/images/banner-contact.jpg") no-repeat 75% center;
 }
 
 #banner-content {
@@ -502,7 +509,7 @@ header {
   border-left: calc(495px * .35 + 5px) solid rgba(255, 255, 255, 0.3);
   border-bottom: calc(495px * .55 + 15px) solid transparent;
 }
-#banner-shapes-container #banner-image {
+#banner-shapes-container .banner-image {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   width: 40%;
@@ -581,10 +588,15 @@ header {
     border-left: calc(700px * .35 + 5px) solid white;
     border-bottom: calc(700px * .55 + 15px) solid transparent;
   }
-  #banner-shapes-container #banner-image {
+  #banner-shapes-container .banner-image {
     width: 65%;
-    background: url("../assets/images/banner.jpg") no-repeat 30% center;
     background-size: cover;
+  }
+  #banner-shapes-container #banner-image-index {
+    background: url("../assets/images/banner-index.jpg") no-repeat 40% center;
+  }
+  #banner-shapes-container #banner-image-contact {
+    background: url("../assets/images/banner-contact.jpg") no-repeat 75% center;
   }
 }
 @media (min-width: 992px) {
@@ -700,6 +712,7 @@ header {
   margin: 35px auto 0 auto;
   padding: 0 0 0 15px;
   color: #584096;
+  text-transform: capitalize;
 }
 @media (min-width: 768px) {
   .form-title {
@@ -967,6 +980,86 @@ header {
 }
 #form-submit-button:active {
   outline: none;
+}
+
+#map {
+  height: max-content;
+  padding: 35px 0;
+  background-color: #584096;
+}
+#map-title {
+  display: block;
+  box-sizing: border-box;
+  margin: 35px auto 35px auto;
+  padding: 0 0 0 15px;
+  color: white;
+  text-transform: capitalize;
+}
+@media (min-width: 767px) {
+  #map-title {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  #map-title {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #map-title {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  #map-title {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+@media (min-width: 768px) {
+  #map-title {
+    padding: 0;
+  }
+}
+#map-inner {
+  margin: 35px auto;
+  padding: 0 15px;
+}
+@media (min-width: 767px) {
+  #map-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  #map-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #map-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  #map-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+@media (min-width: 768px) {
+  #map-inner {
+    padding: 0;
+  }
+}
+#map-interactive {
+  min-height: 75vh;
+  max-height: 650px;
 }
 
 #viewport {

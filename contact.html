@@ -15,6 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap">
 
+    <!-- Leaflet map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""></script>
+
     <!-- ReCaptcha from Google -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
@@ -72,7 +80,7 @@
             <div id="banner-triangle-outline"></div>
             <div id="banner-triangle"></div>
           </div>
-          <div id="banner-image"></div>
+          <div class="banner-image" id="banner-image-contact"></div>
         </div>
       </section> <!-- #banner -->
 
@@ -148,15 +156,57 @@
         </form>
       </section> <!-- #section-form -->
 
+      <section id="map">
+        <h2 id="map-title">Find us:</h2>
+        <div id="map-inner">
+           <div id="map-interactive"></div>
+        </div>
+      </section> <!-- #section-map -->
+
     </main>
 
     <footer>
     </footer>
 
+
+    <!-- Leaflet map -->
+    <script>
+    const coordinates = [52.628614, 1.296345]
+      const mymap = L.map('map-interactive').setView(coordinates, 12);
+
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiemctbmV0bWF0dGVycyIsImEiOiJja2tvMHk4OXMzNWltMnhxdHUwOGU2dnNoIn0.mdmi1fmPyq0QUosQKJV6xw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiemctbmV0bWF0dGVycyIsImEiOiJja2tvMHk4OXMzNWltMnhxdHUwOGU2dnNoIn0.mdmi1fmPyq0QUosQKJV6xw'
+      }).addTo(mymap);
+
+      const greenIcon = L.icon({
+        iconUrl: '/assets/images/pin.svg',
+        //shadowUrl: '/assets/images/location-16.png',
+
+        iconSize:     [40, 95], // size of the icon
+        //shadowSize:   [50, 64], // size of the shadow
+        iconAnchor:   [20, 70], // point of the icon which will correspond to marker's location
+        //shadowAnchor: [4, 62],  // the same for the shadow
+        //popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+      });
+
+      const marker = L.marker(coordinates, {
+        icon: greenIcon,
+        title: 'Inspire Norolfk location'
+      }).addTo(mymap);
+    </script>
+
+
+    <!-- reCAPTCHA -->
     <script>
       function onSubmit(token) {
         document.getElementById("demo-form").submit();
       }
     </script>
+
   </body>
 </html>

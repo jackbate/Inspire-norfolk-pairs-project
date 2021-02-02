@@ -7,14 +7,15 @@
 }
 
 .form-title {
-  display   : block;
-  box-sizing: border-box;
-  margin    : 35px auto 0 auto;
-  padding   : 0 0 0 15px;
+  display       : block;
+  box-sizing    : border-box;
+  margin        : 35px auto 0 auto;
+  padding       : 0 0 0 15px;
   @media (min-width: map-get($breakpoints, 'm')) {
-    padding : 0;
+    padding     : 0;
   }
-  color     : $primary;
+  color         : $primary;
+  text-transform: capitalize;
 }
 
 .form-inner {

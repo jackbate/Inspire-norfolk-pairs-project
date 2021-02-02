@@ -4,14 +4,20 @@
   @media (min-width: map-get($breakpoints, 'm')) {
     height           : 700px;
   }
-  background         : $primary url("../assets/images/banner.jpg") no-repeat center;
   background-size    : cover;
+}
+
+#banner-index {
+  background         : $primary url("../assets/images/banner-index.jpg") no-repeat center;
+}
+#banner-contact {
+  background         : $primary url("../assets/images/banner-contact.jpg") no-repeat 75% center;
 }
 
 #banner-content {
   position           : absolute;
   z-index            : 100;
-  top: 0;
+  top                : 0;
   width              : 100%;
   /*
   display: flex;
@@ -123,7 +129,7 @@
     }
   }
 
-  #banner-image {
+  .banner-image {
     @include flex($grow: 1, $shrink: 1, $basis: auto);
     width            : 40%;
     height           : 100%;
@@ -198,10 +204,15 @@
       }
     }
 
-    #banner-image {
+    .banner-image {
       width           : 65%;
-      background      : url("../assets/images/banner.jpg") no-repeat 30% center;
       background-size : cover;
+    }
+    #banner-image-index {
+      background      : url("../assets/images/banner-index.jpg") no-repeat 40% center;
+    }
+    #banner-image-contact {
+      background      : url("../assets/images/banner-contact.jpg") no-repeat 75% center;
     }
   }
 }
