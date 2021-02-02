@@ -429,6 +429,7 @@ header {
   padding: 0;
   max-width: 420px;
   font-size: 1rem;
+  font-style: normal;
   font-weight: 300;
   line-height: 1.5;
 }
@@ -998,7 +999,6 @@ header {
   display: block;
   box-sizing: border-box;
   margin: 35px auto 35px auto;
-  padding: 0 0 0 15px;
   color: white;
   text-transform: capitalize;
 }
@@ -1026,14 +1026,41 @@ header {
     max-width: 1200px;
   }
 }
-@media (min-width: 768px) {
-  #map-title {
-    padding: 0;
+#map-address {
+  margin: 0 auto;
+  color: white;
+  font-style: normal;
+}
+@media (min-width: 767px) {
+  #map-address {
+    box-sizing: content-box;
+    max-width: 750px;
   }
+}
+@media (min-width: 768px) {
+  #map-address {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #map-address {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  #map-address {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+#map-address p {
+  margin: 0;
+  line-height: 1.5;
 }
 #map-inner {
   margin: 35px auto;
-  padding: 0 15px;
 }
 @media (min-width: 767px) {
   #map-inner {
@@ -1059,14 +1086,17 @@ header {
     max-width: 1200px;
   }
 }
-@media (min-width: 768px) {
-  #map-inner {
-    padding: 0;
-  }
-}
 #map-interactive {
   min-height: 75vh;
   max-height: 650px;
+}
+#map-inner, #map-title, #map-address {
+  padding: 0 15px;
+}
+@media (min-width: 768px) {
+  #map-inner, #map-title, #map-address {
+    padding: 0;
+  }
 }
 
 #viewport {

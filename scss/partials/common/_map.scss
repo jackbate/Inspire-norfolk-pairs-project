@@ -5,30 +5,45 @@
 
   &-title {
     @include set-content-width;
-
     display       : block;
     box-sizing    : border-box;
     margin        : 35px auto 35px auto;
-    padding       : 0 0 0 15px;
-    @media (min-width: map-get($breakpoints, 'm')) {
-      padding     : 0;
-    }
     color         : $secondary;
     text-transform: capitalize;
+  }
+
+  &-address {
+    @include set-content-width;
+    margin    : 0 auto;
+    color     : $secondary;
+    font-style: normal;
+    p {
+      margin  : 0;
+      line-height: 1.5;
+    }
   }
 
   &-inner {
     @include set-content-width;
     margin        : 35px auto;
-    padding       : 0 15px;
-    @media (min-width: map-get($breakpoints, 'm')) {
-      padding     : 0;
-    }
   }
 
   &-interactive {
-    min-height        : 75vh;
-    max-height        : 650px;
+    min-height    : 75vh;
+    max-height    : 650px;
   }
 
+  &-inner,
+  &-title,
+  &-address {
+    padding       : 0 15px;
+  }
+
+  @media (min-width: map-get($breakpoints, 'm')) {
+    &-inner,
+    &-title,
+    &-address {
+      padding     : 0;
+    }
+  }
 }
