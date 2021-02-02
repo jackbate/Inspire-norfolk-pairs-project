@@ -96,10 +96,5 @@ body {
   #banner {
     -ms-grid-row       : 2;
     -ms-grid-column    : 1;
-
-    height             : 495px;
-    @media (min-width: map-get($breakpoints, 'm')) {
-      height           : 700px;
-    }
   }
 }

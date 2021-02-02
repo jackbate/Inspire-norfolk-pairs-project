@@ -341,6 +341,11 @@ header {
   background: #584096 url("../assets/images/banner.jpg") no-repeat center;
   background-size: cover;
 }
+@media (min-width: 768px) {
+  .banner {
+    height: 700px;
+  }
+}
 
 #banner-content {
   position: absolute;
@@ -457,8 +462,6 @@ header {
 #banner-shapes-container {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: column no-wrap;
-  flex-flow: column no-wrap;
   height: inherit;
   width: inherit;
   overflow: hidden;
@@ -982,12 +985,6 @@ header {
 #viewport #banner {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  height: 495px;
-}
-@media (min-width: 768px) {
-  #viewport #banner {
-    height: 700px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

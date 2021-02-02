@@ -1,6 +1,9 @@
 .banner {
   position           : relative;
   height             : 495px;
+  @media (min-width: map-get($breakpoints, 'm')) {
+    height           : 700px;
+  }
   background         : $primary url("../assets/images/banner.jpg") no-repeat center;
   background-size    : cover;
 }
@@ -74,7 +77,6 @@
 
 #banner-shapes-container {
   @include flexbox;
-  @include flex-flow((column no-wrap));
   height              : inherit;
   width               : inherit;
   overflow            : hidden;
