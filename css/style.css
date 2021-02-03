@@ -790,9 +790,10 @@ header {
 }
 
 .required-label::after {
+  content: " *";
   color: #e52226;
   font-size: inherit;
-  content: " *";
+  font-weight: 500;
 }
 
 .form-input-field {

@@ -92,9 +92,10 @@
 }
 
 .required-label::after {
+  content    : " *";
   color      : $error;
   font-size  : inherit;
-  content    : " *";
+  font-weight: 500;
 }
 
 //============

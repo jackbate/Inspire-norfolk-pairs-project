@@ -45,7 +45,7 @@
     cursor          : pointer;
 
 
-    transition        : transform 250ms $bezier; //-out;
+    transition        : transform 250ms $bezier;
 
     &:hover, &:focus {
       transform       : scale(1.2, 1.2);
