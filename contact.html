@@ -94,16 +94,16 @@
 
           <div id="form-name" class="form-input-field">
             <label>
-              <span class="form-label required">Name:</span>
-              <input id="form-name-input" class="text-input" type="text" name="name" placeholder="Jane Smith">
+              <span class="form-label required-label">Name:</span>
+              <input id="form-name-input" class="text-input required-input" type="text" name="name" placeholder="Jane Smith">
               <div class="focus-bar"></div>
             </label>
           </div>
 
           <div id="form-email" class="form-input-field">
             <label>
-              <span class="form-label required">Email Address:</span>
-              <input id="form-email-input" class="text-input" type="email" name="email" placeholder="example@domain.com">
+              <span class="form-label required-label">Email Address:</span>
+              <input id="form-email-input" class="text-input required-input" type="email" name="email" placeholder="example@domain.com">
               <div class="focus-bar"></div>
             </label>
           </div>
@@ -118,7 +118,7 @@
 
           <div id="form-radio">
             <label>
-              <span class="form-label required">Enquiring about:</span>  <!-- Change -->
+              <span class="form-label required-label">Enquiring about:</span>  <!-- Change -->
               <div>
                 <input type="radio" name="enquiryType" value="business" id="form-radio-business">
                 <label class="radio-label" for="form-radio-business">Business enquiring about apprentices</label>
@@ -136,15 +136,15 @@
 
           <div id="form-text">
             <label>
-              <span class="form-label required">Message:</span>
-              <textarea id="form-text-input" class="text-input" type="text" name="message" placeholder="Lorem ipsum..."></textarea>
+              <span class="form-label required-label">Message:</span>
+              <textarea id="form-text-input" class="text-input required-input" type="text" name="message" placeholder="Lorem ipsum..."></textarea>
               <div class="focus-bar"></div>
             </label>
           </div>
 
           <div id="form-gdpr">
-            <input id="form-gdpr-checkbox" type="checkbox" name="confirmGDPR">
-            <label id="form-gdpr-statement" class="required" for="form-gdpr-checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</label>
+            <input id="form-gdpr-checkbox" class="required-input" type="checkbox" name="confirmGDPR">
+            <label id="form-gdpr-statement" class="required-label" for="form-gdpr-checkbox">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</label>
           </div>
 
           <div id="form-submit">
@@ -191,6 +191,8 @@
     <footer>
     </footer>
 
+    <!-- Form validation -->
+    <script src="/javascript/form_validation.js"></script>
 
     <!-- Leaflet map -->
     <script>
