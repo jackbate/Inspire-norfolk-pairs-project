@@ -3,22 +3,39 @@ function checkEmptyFields (requiredFields) {
    * Checks input fields contain text
    *
    * @param {collection} requiredFields - a collection of DOM elements (input fields)
-   * @returns {bool} if any fields are empty returns true, else returns false
+   * @returns {bool} - if any fields are empty returns true, else returns false
    */
 
-  for (let i = 0; i <= requiredFields.length - 1; i++) {            // For required field
+  for (let i = 0; i <= requiredFields.length - 1; i++) {  // For required field
     let inputField = requiredFields[i];
     let inputType = inputField.getAttribute('type');
 
     if (inputType === 'text' || inputType === 'email') {
-      if (!inputField.value) {                                      // If a field is empty,
-        return true;                                                // Returns true (automatically exiting loop and function)
+      if (!inputField.value) {                            // If a field is empty,
+        return true;                                      // Returns true (automatically exiting loop and function)
       }
     }
   }
-  return false;                                                      // If no fields found to be empty, returns false
+  return false;                                           // If no fields found to be empty, returns false
 }
 
+
+function checkRadios (requiredRadios) {
+  /**
+   * Checks one of the radio buttons is selected
+   *
+   * @param {collection} requiredRadios - a collection of DOM elements (input fields with type='radio')
+   * @returns {bool} - if any radio button is selected returns true, else returns false
+   */
+
+  for (let i = 0; i <= requiredRadios.length - 1; i++) {  // For required field
+    let inputRadio = requiredRadios[i];
+    if (inputRadio.checked) {                             // If a radio is checked
+      return true;                                        // returns true (exiting the loop and function)
+    }
+  }
+  return false;                                           // If none selected, returns false
+}
 
 
 function checkGDPR (checkbox) {
@@ -26,7 +43,7 @@ function checkGDPR (checkbox) {
    * Checks user has accepted the GDPR statement
    *
    * @param {element} checkbox - a checkbox DOM element, to test if checked
-   * @returns {bool} if checked returns true, else returns false
+   * @returns {bool} - if checked returns true, else returns false
    */
 
    if (checkbox.checked) {
@@ -40,15 +57,22 @@ function checkGDPR (checkbox) {
 // Get button for submit
 const button = document.getElementById('form-submit-button');
 
-// Get GDPR checkbox button
+// Get radio button input options
+const radios = document.getElementsByClassName('form-radio-option');
+
+// Get GDPR checkbox
 const checkbox = document.getElementById('form-gdpr-checkbox');
 
 // Get required fields
-const required = document.getElementsByClassName('required-input');
+const fields = document.getElementsByClassName('required-input');
 
-// On button click, check if any fields are empty
+// On button click, check if any required fields/selections are empty.
 button.addEventListener('click', () => {
-  const emptyFields = checkEmptyFields(required);
+  // Need some sort of flow control -
+  // next function only called if
+  // first function returns false
+
+  const emptyFields = checkEmptyFields(fields);
 
   if (emptyFields) {
     console.log('One or more fields are empty');
@@ -56,7 +80,15 @@ button.addEventListener('click', () => {
     console.log('No fields are empty');
   }
 
-  // Need some sort of flow control - next function only called if first function returns false
+
+  const selectedEnquiryType = checkRadios(radios);
+
+  if (!selectedEnquiryType) {
+    console.log('No radio buttons have been checked');
+  } else {
+    console.log('A radio button has been checked');
+  }
+
 
   const acceptedGDPR = checkGDPR(checkbox);
 
@@ -65,5 +97,4 @@ button.addEventListener('click', () => {
   } else {
     console.log('GDPR accepted');
   }
-
 });
