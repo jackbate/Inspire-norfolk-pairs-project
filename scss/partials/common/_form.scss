@@ -280,6 +280,7 @@ $radio-buttons: ("form-radio-business", "form-radio-young-person", "form-radio-o
 
 #form-submit-button {
   @include button-base-style {
+    display: inline-block;
     &:active {
       outline: none;
     }

@@ -20,6 +20,26 @@ function checkEmptyFields (requiredFields) {
 }
 
 
+function validateEmailAddress (emailField) {
+  /**
+   * Validates text on the email fields is an address
+   *
+   * @param {string} emailField - the value on the input field (type 'email') DOM element
+   * @returns {bool} - if valid email returns true, else if invalid returns false
+   */
+
+   const reEmail = new RegExp('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}');
+
+   emailAddress = reEmail.test(emailField.value.toUpperCase());
+
+   if (emailAddress) {
+     return true;
+   } else {
+     return false;
+   }
+}
+
+
 function checkRadios (requiredRadios) {
   /**
    * Checks one of the radio buttons is selected
@@ -46,55 +66,101 @@ function checkGDPR (checkbox) {
    * @returns {bool} - if checked returns true, else returns false
    */
 
-   if (checkbox.checked) {
-     return true;
-   } else {
-     return false;
+   if (checkbox.checked) {                                // If GDPR is checked
+     return true;                                         // returns true
+   } else {                                               // If GDPR is not checked
+     return false;                                        // returns false
    }
 }
 
+//=============================================
+
+function showErrorMessage (message, element) {
+  element.textContent = message;
+  console.log('Changed the content of the error message');
+}
+
+//=============================================
+// PERFORM VALIDATION ON SUBMIT BUTTON CLICKED
+//=============================================
 
 // Get button for submit
 const button = document.getElementById('form-submit-button');
 
-// Get radio button input options
-const radios = document.getElementsByClassName('form-radio-option');
+const buttonParent = button.parentNode;
 
-// Get GDPR checkbox
-const checkbox = document.getElementById('form-gdpr-checkbox');
+// Add a blank error message after the button
+const errorMessage = document.createElement('span');
 
-// Get required fields
-const fields = document.getElementsByClassName('required-input');
+errorMessage.style.id = 'form-error-message';
+errorMessage.style.display = 'inline-block';
+errorMessage.style.margin = '0 auto 0 15px';
+errorMessage.style.width = '300px';
+errorMessage.style.verticalAlign = 'middle';
+errorMessage.style.color = '#FF0000';
+
+buttonParent.appendChild(errorMessage);
+
 
 // On button click, check if any required fields/selections are empty.
 button.addEventListener('click', () => {
-  // Need some sort of flow control -
-  // next function only called if
-  // first function returns false
+  //====================
+  // CHECK INPUT FIELDS
+  //====================
 
+  // Get required fields
+  const fields = document.getElementsByClassName('required-input');
+
+  // Check fields are populated
   const emptyFields = checkEmptyFields(fields);
 
-  if (emptyFields) {
-    console.log('One or more fields are empty');
-  } else {
-    console.log('No fields are empty');
-  }
+  //========================
+  // VALIDATE EMAIL ADDRESS
+  //========================
 
+  // Get text on email address field
+  const emailField = document.getElementById('form-email-input');
 
+  // Check email address is valid
+  const validEmail = validateEmailAddress(emailField);
+
+  //==================================
+  // CHECK A RADIO BUTTON IS SELECTED
+  //==================================
+
+  // Get radio button input options
+  const radios = document.getElementsByClassName('form-radio-option');
+
+  // Check a radio button is selected
   const selectedEnquiryType = checkRadios(radios);
 
-  if (!selectedEnquiryType) {
-    console.log('No radio buttons have been checked');
-  } else {
-    console.log('A radio button has been checked');
-  }
+  //=================================
+  // CHECK GDPR CHECKBOX IS SELECTED
+  //=================================
 
+  // Get GDPR checkbox
+  const checkbox = document.getElementById('form-gdpr-checkbox');
 
+  // Check the checkbox is checked
   const acceptedGDPR = checkGDPR(checkbox);
 
-  if (!acceptedGDPR) {
-    console.log('GDPR checkbox has NOT been checked');
+  //=========================
+  // PERFORM FORM VALIDATION
+  //=========================
+
+  let errorString = '';
+
+  if (emptyFields) {
+    errorString += 'Oops! Looks like one or more input fields are empty.';
+  } else if (!validEmail) {
+    errorString += 'Oops! Please check the email address you\'ve entered is correct.';
+  } else if (!selectedEnquiryType) {
+    errorString += 'Please pick a reason for your enquiry (if you\'re unsure, choose "Something Else").';
+  } else if (!acceptedGDPR) {
+    errorString += 'To get in contact, please accept our GDPR statement.';
   } else {
-    console.log('GDPR accepted');
+    console.log('All forms validated');
   }
+  showErrorMessage(errorString, errorMessage);
+
 });

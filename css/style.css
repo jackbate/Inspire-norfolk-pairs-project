@@ -978,6 +978,7 @@ header {
   background-color: #584096;
   border: 2px solid #584096;
   color: white;
+  display: inline-block;
 }
 #form-submit-button:hover, #form-submit-button:focus {
   border: 2px solid #433172;
