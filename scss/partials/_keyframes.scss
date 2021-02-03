@@ -1,3 +1,5 @@
+$bezier: cubic-bezier(.48,1.07,.75,.99);
+
 //===========================
 // SLIDE IN
 //===========================
@@ -44,12 +46,11 @@
 }
 
 @mixin slide-in-from-left($duration: 1000ms, $delay: 0ms, $retain: "false") {
-  $sliding-func    : cubic-bezier(.48,1.07,.75,.99);
-  -moz-animation   : $duration $sliding-func $delay 1 slideInFromLeft;
-  -ms-animation    : $duration $sliding-func $delay 1 slideInFromLeft;
-  -o-animation     : $duration $sliding-func $delay 1 slideInFromLeft;
-  -webkit-animation: $duration $sliding-func $delay 1 slideInFromLeft;
-  animation        : $duration $sliding-func $delay 1 slideInFromLeft;
+  -moz-animation   : $duration $bezier $delay 1 slideInFromLeft;
+  -ms-animation    : $duration $bezier $delay 1 slideInFromLeft;
+  -o-animation     : $duration $bezier $delay 1 slideInFromLeft;
+  -webkit-animation: $duration $bezier $delay 1 slideInFromLeft;
+  animation        : $duration $bezier $delay 1 slideInFromLeft;
 
   @if $retain == "true" {
     animation-fill-mode: forwards;  // Retain final fill state

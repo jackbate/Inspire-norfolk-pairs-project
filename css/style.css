@@ -1148,20 +1148,29 @@ header {
 }
 #socials-section .socials-section-button {
   display: inline-block;
-  margin: 0 5px;
-  height: 35px;
-  width: 35px;
-  line-height: 35px;
+  margin: 0 8px;
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
   text-align: center;
   font-size: 1.5rem;
   color: #584096;
   background-color: white;
-  border: 5px solid white;
+  border: 1px solid white;
   border-radius: 100%;
   cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.48, 1.07, 0.75, 0.99);
 }
 #socials-section .socials-section-button i {
   display: inline-block;
+}
+#socials-section .socials-section-button:hover, #socials-section .socials-section-button:focus {
+  transform: scale(1.2, 1.2);
+}
+#socials-section .socials-section-button:active {
+  background-color: #e6e6e6;
+  border-color: #e6e6e6;
+  box-shadow: 0px 0px 3px #333;
 }
 
 #viewport {
