@@ -151,7 +151,7 @@ button.addEventListener('click', () => {
   let errorString = '';
 
   if (emptyFields) {
-    errorString += 'Oops! Looks like one or more input fields are empty.';
+    errorString += 'Oops! Looks like one or more required fields (marked by *) are empty.';
   } else if (!validEmail) {
     errorString += 'Oops! Please check the email address you\'ve entered is correct.';
   } else if (!selectedEnquiryType) {
