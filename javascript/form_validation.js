@@ -28,12 +28,20 @@ function checkGDPR (checkbox) {
    * @param {element} checkbox - a checkbox DOM element, to test if checked
    * @returns {bool} if checked returns true, else returns false
    */
-}
 
+   if (checkbox.checked) {
+     return true;
+   } else {
+     return false;
+   }
+}
 
 
 // Get button for submit
 const button = document.getElementById('form-submit-button');
+
+// Get GDPR checkbox button
+const checkbox = document.getElementById('form-gdpr-checkbox');
 
 // Get required fields
 const required = document.getElementsByClassName('required-input');
@@ -47,4 +55,15 @@ button.addEventListener('click', () => {
   } else {
     console.log('No fields are empty');
   }
+
+  // Need some sort of flow control - next function only called if first function returns false
+
+  const acceptedGDPR = checkGDPR(checkbox);
+
+  if (!acceptedGDPR) {
+    console.log('GDPR checkbox has NOT been checked');
+  } else {
+    console.log('GDPR accepted');
+  }
+
 });

@@ -91,7 +91,7 @@
   }
 }
 
-.required::after {
+.required-label::after {
   color      : $error;
   font-size  : inherit;
   content    : " *";

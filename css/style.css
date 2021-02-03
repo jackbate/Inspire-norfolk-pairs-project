@@ -789,7 +789,7 @@ header {
   }
 }
 
-.required::after {
+.required-label::after {
   color: #e52226;
   font-size: inherit;
   content: " *";
