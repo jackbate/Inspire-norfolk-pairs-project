@@ -956,7 +956,15 @@ header {
   color: #666;
 }
 
+#form-submit {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+}
 #form-submit-button {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   /*!
    * This mixin is intended to be applied to any anchor element which is to be
    * styled as a button. Default button style is primary.
@@ -990,6 +998,15 @@ header {
 }
 #form-submit-button:active {
   outline: none;
+}
+#form-submit-error {
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  margin: 0 auto 0 0;
+  padding: 0 15px;
+  height: 42px;
+  width: 350px;
+  vertical-align: middle;
 }
 
 #map {

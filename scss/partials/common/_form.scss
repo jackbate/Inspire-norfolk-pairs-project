@@ -278,11 +278,32 @@ $radio-buttons: ("form-radio-business", "form-radio-young-person", "form-radio-o
 // BUTTON
 //========
 
-#form-submit-button {
-  @include button-base-style {
-    display: inline-block;
-    &:active {
-      outline: none;
+#form-submit {
+  @include flexbox;
+  @include flex-flow(row nowrap);
+
+  &-button {
+    @include flex($grow: 0, $shrink: 0, $basis: auto);
+
+    @include button-base-style {
+      display: inline-block;
+      &:active {
+        outline: none;
+      }
     }
+  }
+
+  &-error {
+    @include flex($grow: 0, $shrink: 1, $basis: auto);
+
+    margin: 0 auto 0 0;
+    padding: 0 15px;
+
+    height: 42px;
+    //min-width: 150px;
+    //max-width: 400px;
+
+    width: 350px;
+    vertical-align: middle;
   }
 }

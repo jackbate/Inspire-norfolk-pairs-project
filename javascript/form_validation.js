@@ -73,12 +73,6 @@ function checkGDPR (checkbox) {
    }
 }
 
-//=============================================
-
-function showErrorMessage (message, element) {
-  element.textContent = message;
-  console.log('Changed the content of the error message');
-}
 
 //=============================================
 // PERFORM VALIDATION ON SUBMIT BUTTON CLICKED
@@ -87,19 +81,15 @@ function showErrorMessage (message, element) {
 // Get button for submit
 const button = document.getElementById('form-submit-button');
 
-const buttonParent = button.parentNode;
-
 // Add a blank error message after the button
+const errorContainer = document.getElementById('form-submit-error');
 const errorMessage = document.createElement('span');
 
-errorMessage.style.id = 'form-error-message';
-errorMessage.style.display = 'inline-block';
-errorMessage.style.margin = '0 auto 0 15px';
-errorMessage.style.width = '300px';
+errorMessage.display = 'inline';
 errorMessage.style.verticalAlign = 'middle';
 errorMessage.style.color = '#FF0000';
 
-buttonParent.appendChild(errorMessage);
+errorContainer.appendChild(errorMessage);
 
 
 // On button click, check if any required fields/selections are empty.
@@ -161,6 +151,6 @@ button.addEventListener('click', () => {
   } else {
     console.log('All forms validated');
   }
-  showErrorMessage(errorString, errorMessage);
 
+  errorMessage.textContent = errorString;  // Set the error message
 });
