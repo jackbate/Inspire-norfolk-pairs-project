@@ -737,14 +737,25 @@ header {
 }
 
 .service-card {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
   margin: 0 0 35px;
-  padding: 20px;
+  padding: 35px;
   height: 350px;
   background-color: #584096;
 }
 .service-card-title {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   text-align: center;
   color: white;
+  margin: 0;
 }
 .service-card-description {
   position: relative;

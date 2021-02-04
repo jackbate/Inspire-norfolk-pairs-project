@@ -31,15 +31,22 @@
 }
 
 .service-card {
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  @include align-items(stretch);
+  @include align-content(stretch);
+
   margin          : 0 0 35px;
-  padding         : 20px;
+  padding         : 35px;
   height          : 350px;
 
   background-color: $primary;
 
   &-title {
+    @include flex($grow: 0, $shrink: 0, $basis: auto);
     text-align    : center;
     color         : $secondary;
+    margin        : 0;
   }
 
   &-description {
