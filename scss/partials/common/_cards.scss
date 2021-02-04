@@ -1,6 +1,73 @@
-// REMOVE THIS!!! Set to help distinguish description sections during build
+//=================
+// HOME PAGE CARDS
+//=================
+
+// REMOVE THIS!!! Set to help distinguish description sections on home page during build
 .cards-container {
   display: block;
   height: 50px;
   background-color: $primary;
+}
+
+//====================
+// OUR SERVICES CARDS
+//====================
+
+#services {
+  overflow: hidden;
+}
+
+#services-inner {
+  @include set-content-width;
+  margin   : 35px auto;
+
+  padding  : 0 15px;
+  @media (min-width: map-get($breakpoints, 'm')) {
+    padding: 0;
+  }
+
+  @include flexbox;
+  @include flex-flow(column nowrap);
+}
+
+.service-card {
+  margin          : 0 0 35px;
+  padding         : 20px;
+  height          : 350px;
+
+  background-color: $primary;
+
+  &-title {
+    text-align    : center;
+    color         : $secondary;
+  }
+
+  &-description {
+    $lh        : 24px;
+    $max-lines : 5;
+
+    position   : relative;
+    margin     : 15px auto;
+    width      : 75%;
+    max-height : calc(#{$lh} * #{$max-lines});
+    overflow   : hidden;
+
+    line-height: $lh;
+    text-align : center;
+    color      : $secondary;
+
+    .fade {
+      position  : absolute;
+      height    : 50px;
+      width     : 500px;
+      bottom    : 0;
+      background: linear-gradient(transparent, $primary);
+    }
+  }
+
+  &-button {
+    @include button-base-style($style: 'secondary') {
+      margin: 80px auto 0;
+    }
+  }
 }

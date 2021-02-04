@@ -355,6 +355,10 @@ header {
   background: #584096 url("../assets/images/banner-contact.jpg") no-repeat 75% center;
 }
 
+#banner-services {
+  background: #584096 url("../assets/images/apprenticeship-recruitment.jpg") no-repeat 40% center;
+}
+
 #banner-content {
   position: absolute;
   z-index: 100;
@@ -608,6 +612,9 @@ header {
   #banner-shapes-container #banner-image-contact {
     background: url("../assets/images/banner-contact.jpg") no-repeat 75% center;
   }
+  #banner-shapes-container #banner-image-services {
+    background: url("../assets/images/apprenticeship-recruitment.jpg") no-repeat 40% center;
+  }
 }
 @media (min-width: 992px) {
   #banner-content h1 {
@@ -685,6 +692,109 @@ header {
   display: block;
   height: 50px;
   background-color: #584096;
+}
+
+#services {
+  overflow: hidden;
+}
+
+#services-inner {
+  margin: 35px auto;
+  padding: 0 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+}
+@media (min-width: 767px) {
+  #services-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  #services-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  #services-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  #services-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+@media (min-width: 768px) {
+  #services-inner {
+    padding: 0;
+  }
+}
+
+.service-card {
+  margin: 0 0 35px;
+  padding: 20px;
+  height: 350px;
+  background-color: #584096;
+}
+.service-card-title {
+  text-align: center;
+  color: white;
+}
+.service-card-description {
+  position: relative;
+  margin: 15px auto;
+  width: 75%;
+  max-height: calc(24px * 5);
+  overflow: hidden;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+}
+.service-card-description .fade {
+  position: absolute;
+  height: 50px;
+  width: 500px;
+  bottom: 0;
+  background: linear-gradient(transparent, #584096);
+}
+.service-card-button {
+  /*!
+   * This mixin is intended to be applied to any anchor element which is to be
+   * styled as a button. Default button style is primary.
+   *
+   * Style 'primary': purple button, for use on a white background.
+   * Style 'secondary': white button, for use on a purple background.
+  */
+  display: block;
+  box-sizing: border-box;
+  padding: 10px 35px;
+  width: max-content;
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.125rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.48, 1.07, 0.75, 0.99), border 150ms cubic-bezier(0.48, 1.07, 0.75, 0.99), color 150ms cubic-bezier(0.48, 1.07, 0.75, 0.99);
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  margin: 80px auto 0;
+}
+.service-card-button:hover, .service-card-button:focus {
+  color: #584096;
+  background-color: white;
+}
+.service-card-button:active {
+  -moz-box-shadow: inset 0px 0px 3px #333;
+  box-shadow: inset 0px 0px 3px #333;
 }
 
 #contact-form {
