@@ -35,6 +35,10 @@ body {
   border-radius       : 5px;
   cursor              : pointer;
 
+  transition: background-color 150ms $bezier,
+              border 150ms $bezier,
+              color 150ms $bezier;
+
   @if $style == 'primary' {
     background-color  : $primary;
     border            : 2px solid $primary;
