@@ -694,44 +694,36 @@ header {
   background-color: #584096;
 }
 
-#services {
-  overflow: hidden;
-}
-
-#services-inner {
+.service-card-container {
   margin: 35px auto;
   padding: 0 15px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
 }
 @media (min-width: 767px) {
-  #services-inner {
+  .service-card-container {
     box-sizing: content-box;
     max-width: 750px;
   }
 }
 @media (min-width: 768px) {
-  #services-inner {
+  .service-card-container {
     box-sizing: content-box;
     max-width: 750px;
   }
 }
 @media (min-width: 992px) {
-  #services-inner {
+  .service-card-container {
     box-sizing: content-box;
     max-width: 970px;
   }
 }
 @media (min-width: 1260px) {
-  #services-inner {
+  .service-card-container {
     box-sizing: content-box;
     max-width: 1200px;
   }
 }
 @media (min-width: 768px) {
-  #services-inner {
+  .service-card-container {
     padding: 0;
   }
 }
@@ -761,14 +753,37 @@ header {
   flex: 0 0 auto;
   position: relative;
   margin: 15px auto;
-  width: 90%;
-  max-height: calc(24px * 5);
+  max-height: 120px;
   overflow: hidden;
   line-height: 24px;
   text-align: center;
   color: white;
 }
+@media (min-width: 767px) {
+  .service-card-description {
+    box-sizing: content-box;
+  }
+}
+@media (min-width: 768px) {
+  .service-card-description {
+    box-sizing: content-box;
+    max-width: 680px;
+  }
+}
+@media (min-width: 992px) {
+  .service-card-description {
+    box-sizing: content-box;
+    max-width: 900px;
+  }
+}
+@media (min-width: 1260px) {
+  .service-card-description {
+    box-sizing: content-box;
+    max-width: 1150px;
+  }
+}
 .service-card-description .fade {
+  visibility: visible;
   position: absolute;
   bottom: 0;
   height: 50px;
