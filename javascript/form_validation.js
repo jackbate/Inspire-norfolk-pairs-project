@@ -87,7 +87,6 @@ const errorMessage = document.createElement('span');
 
 errorMessage.display = 'inline';
 errorMessage.style.verticalAlign = 'middle';
-errorMessage.style.color = '#FF0000';
 
 errorContainer.appendChild(errorMessage);
 
@@ -99,7 +98,7 @@ button.addEventListener('click', () => {
   //====================
 
   // Get required fields
-  const fields = document.getElementsByClassName('required-input');
+  let fields = document.getElementsByClassName('required-input');
 
   // Check fields are populated
   const emptyFields = checkEmptyFields(fields);
@@ -119,7 +118,7 @@ button.addEventListener('click', () => {
   //==================================
 
   // Get radio button input options
-  const radios = document.getElementsByClassName('form-radio-option');
+  let radios = document.getElementsByClassName('form-radio-option');
 
   // Check a radio button is selected
   const selectedEnquiryType = checkRadios(radios);
@@ -129,7 +128,7 @@ button.addEventListener('click', () => {
   //=================================
 
   // Get GDPR checkbox
-  const checkbox = document.getElementById('form-gdpr-checkbox');
+  let checkbox = document.getElementById('form-gdpr-checkbox');
 
   // Check the checkbox is checked
   const acceptedGDPR = checkGDPR(checkbox);
@@ -139,6 +138,7 @@ button.addEventListener('click', () => {
   //=========================
 
   let errorString = '';
+  errorMessage.style.color = '#FF0000';  // Red for error
 
   if (emptyFields) {
     errorString += 'Oops! Looks like one or more required fields (marked by *) are empty.';
@@ -149,8 +149,24 @@ button.addEventListener('click', () => {
   } else if (!acceptedGDPR) {
     errorString += 'To get in contact, please accept our GDPR statement.';
   } else {
-    console.log('All forms validated');
+
+    // Clear fields
+    for (let i = 0; i <= fields.length - 1; i++) {  // For required field
+      fields[i].value = '';
+    }
+
+    document.getElementById('form-phone-input').value = '';
+
+    for (let i = 0; i <= radios.length - 1; i++) {  // For required field
+      radios[i].checked = false;
+    }
+    checkbox.checked = false;
+
+    // Set success message
+    errorMessage.style.color = '#008800';  // Red for error
+    errorString += 'Your message was sent successfully! We\'ll be in touch.';
   }
 
-  errorMessage.textContent = errorString;  // Set the error message
+  // Display the error/success message
+  errorMessage.textContent = errorString;
 });

@@ -194,7 +194,14 @@
     </footer>
 
     <!-- Form validation -->
-    <script src="/javascript/form_validation.js"></script>
+    <script src="javascript/form_validation.js"></script>
+
+    <!-- reCAPTCHA -->
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit(); // NTD
+      }
+    </script>
 
     <!-- Leaflet map -->
     <script>
@@ -211,7 +218,7 @@
       }).addTo(mymap);
 
       const greenIcon = L.icon({
-        iconUrl: '/assets/images/pin.svg',
+        iconUrl: 'assets/images/pin.svg',
         iconSize:     [40, 95],
         iconAnchor:   [20, 70],
         popupAnchor:  [1, -50]
@@ -232,13 +239,6 @@
         </address>`);
     </script>
 
-
-    <!-- reCAPTCHA -->
-    <script>
-      function onSubmit(token) {
-        document.getElementById("demo-form").submit(); // NTD
-      }
-    </script>
 
   </body>
 </html>
