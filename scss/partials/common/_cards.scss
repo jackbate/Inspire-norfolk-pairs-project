@@ -38,24 +38,25 @@
 
   margin          : 0 0 35px;
   padding         : 35px;
-  height          : 350px;
 
   background-color: $primary;
 
   &-title {
     @include flex($grow: 0, $shrink: 0, $basis: auto);
+    margin        : 0;
     text-align    : center;
     color         : $secondary;
-    margin        : 0;
   }
 
   &-description {
+    @include flex($grow: 0, $shrink: 0, $basis: auto);
+
     $lh        : 24px;
     $max-lines : 5;
 
     position   : relative;
     margin     : 15px auto;
-    width      : 75%;
+    width      : 90%;
     max-height : calc(#{$lh} * #{$max-lines});
     overflow   : hidden;
 
@@ -65,16 +66,17 @@
 
     .fade {
       position  : absolute;
-      height    : 50px;
-      width     : 500px;
       bottom    : 0;
+      height    : 50px;
+
+      width     : 100%;
       background: linear-gradient(transparent, $primary);
     }
   }
 
   &-button {
     @include button-base-style($style: 'secondary') {
-      margin: 80px auto 0;
+      margin: 15px auto 0;
     }
   }
 }
