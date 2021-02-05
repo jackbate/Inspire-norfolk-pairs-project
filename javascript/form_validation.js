@@ -1,75 +1,74 @@
-function checkEmptyFields (requiredFields) {
+function emptyFields ($requiredFields) {
   /**
    * Checks input fields contain text
    *
-   * @param {collection} requiredFields - a collection of DOM elements (input fields)
+   * @param {collection} $requiredFields - jQuery collection of DOM elements (input fields)
    * @returns {bool} - if any fields are empty returns true, else returns false
    */
 
-  for (let i = 0; i <= requiredFields.length - 1; i++) {  // For required field
-    let inputField = requiredFields[i];
-    let inputType = inputField.getAttribute('type');
+  let isEmpty = false;                         // Default assume fields have text on them
 
-    if (inputType === 'text' || inputType === 'email') {
-      if (!inputField.value) {                            // If a field is empty,
-        return true;                                      // Returns true (automatically exiting loop and function)
-      }
+  $requiredFields.each(function(i, element) {
+    if (!$(this).val()) {                      // If any of fields are empty,
+      isEmpty = true;                          // set isEmpty to true
     }
-  }
-  return false;                                           // If no fields found to be empty, returns false
+  });
+
+  return isEmpty;
 }
 
 
-function validateEmailAddress (emailField) {
+function invalidEmailAddress ($emailField) {
   /**
    * Validates text on the email fields is an address
    *
-   * @param {string} emailField - the value on the input field (type 'email') DOM element
-   * @returns {bool} - if valid email returns true, else if invalid returns false
+   * @param {element} $emailField - the jQuery DOM element that is an input field of type email
+   * @returns {bool} - if valid email returns false, else if invalid returns true
    */
 
    const reEmail = new RegExp('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}');
 
-   emailAddress = reEmail.test(emailField.value.toUpperCase());
+   emailAddress = reEmail.test($emailField.val().toUpperCase());
 
    if (emailAddress) {
-     return true;
-   } else {
      return false;
+   } else {
+     return true;
    }
 }
 
 
-function checkRadios (requiredRadios) {
+function noRadioSelected ($requiredRadios) {
   /**
    * Checks one of the radio buttons is selected
    *
-   * @param {collection} requiredRadios - a collection of DOM elements (input fields with type='radio')
-   * @returns {bool} - if any radio button is selected returns true, else returns false
+   * @param {collection} $requiredRadios - a jQuery collection of DOM elements (input fields with type='radio')
+   * @returns {bool} - if any radio button is selected returns false, else returns true
    */
 
-  for (let i = 0; i <= requiredRadios.length - 1; i++) {  // For required field
-    let inputRadio = requiredRadios[i];
-    if (inputRadio.checked) {                             // If a radio is checked
-      return true;                                        // returns true (exiting the loop and function)
+  let noneChecked = true;                      // Default assume radio checked
+  $requiredRadios.each(function() {
+    if ($(this).is(':checked')) {              // If a radio is checked
+      noneChecked = false;                     // set isChecked to true
     }
-  }
-  return false;                                           // If none selected, returns false
+  });
+
+  return noneChecked;
 }
 
 
-function checkGDPR (checkbox) {
+function notCheckedGDPR ($checkbox) {
   /**
    * Checks user has accepted the GDPR statement
    *
-   * @param {element} checkbox - a checkbox DOM element, to test if checked
+   * @param {element} $checkbox - a jQuery checkbox DOM element, to test if checked
    * @returns {bool} - if checked returns true, else returns false
    */
 
-   if (checkbox.checked) {                                // If GDPR is checked
-     return true;                                         // returns true
-   } else {                                               // If GDPR is not checked
-     return false;                                        // returns false
+   if ($checkbox.is(':checked')) {             // If GDPR is checked
+     return false;                             // returns false
+   } else {                                    // If GDPR is not checked
+     return true;                              // returns true
    }
 }
 
@@ -79,94 +78,77 @@ function checkGDPR (checkbox) {
 //=============================================
 
 // Get button for submit
-const button = document.getElementById('form-submit-button');
+const $button = $('#form-submit-button');
 
 // Add a blank error message after the button
-const errorContainer = document.getElementById('form-submit-error');
-const errorMessage = document.createElement('span');
-
-errorMessage.display = 'inline';
-errorMessage.style.verticalAlign = 'middle';
-
-errorContainer.appendChild(errorMessage);
-
+const $errorMessage = $('#form-submit-error > span');
 
 // On button click, check if any required fields/selections are empty.
-button.addEventListener('click', () => {
+$button.click(function() {
+
   //====================
   // CHECK INPUT FIELDS
   //====================
 
-  // Get required fields
-  let fields = document.getElementsByClassName('required-input');
-
   // Check fields are populated
-  const emptyFields = checkEmptyFields(fields);
+  let $requiredFields = $('.required-input[type="text"], .required-input[type="email"]');
 
   //========================
   // VALIDATE EMAIL ADDRESS
   //========================
 
-  // Get text on email address field
-  const emailField = document.getElementById('form-email-input');
-
-  // Check email address is valid
-  const validEmail = validateEmailAddress(emailField);
+  // Validate email address
+  let $emailInput = $('#form-email-input');
 
   //==================================
   // CHECK A RADIO BUTTON IS SELECTED
   //==================================
 
-  // Get radio button input options
-  let radios = document.getElementsByClassName('form-radio-option');
-
   // Check a radio button is selected
-  const selectedEnquiryType = checkRadios(radios);
+  let $radios = $(':radio');
 
   //=================================
   // CHECK GDPR CHECKBOX IS SELECTED
   //=================================
 
-  // Get GDPR checkbox
-  let checkbox = document.getElementById('form-gdpr-checkbox');
-
   // Check the checkbox is checked
-  const acceptedGDPR = checkGDPR(checkbox);
+  let $checkbox = $('#form-gdpr-checkbox')
 
   //=========================
   // PERFORM FORM VALIDATION
   //=========================
 
   let errorString = '';
-  errorMessage.style.color = '#FF0000';  // Red for error
+  $errorMessage.css('color', '#FF0000');
 
-  if (emptyFields) {
+  if (emptyFields($requiredFields)) {
     errorString += 'Oops! Looks like one or more required fields (marked by *) are empty.';
-  } else if (!validEmail) {
+  } else if (invalidEmailAddress($emailInput)) {
     errorString += 'Oops! Please check the email address you\'ve entered is correct.';
-  } else if (!selectedEnquiryType) {
+  } else if (noRadioSelected($radios)) {
     errorString += 'Please pick a reason for your enquiry (if you\'re unsure, choose "Something Else").';
-  } else if (!acceptedGDPR) {
+  } else if (notCheckedGDPR($checkbox)) {
     errorString += 'To get in contact, please accept our GDPR statement.';
   } else {
 
     // Clear fields
-    for (let i = 0; i <= fields.length - 1; i++) {  // For required field
-      fields[i].value = '';
-    }
+    $requiredFields.each(function() {
+      $(this).val('');
+    });
 
-    document.getElementById('form-phone-input').value = '';
+    $('#form-phone-input').val('');
 
-    for (let i = 0; i <= radios.length - 1; i++) {  // For required field
-      radios[i].checked = false;
-    }
-    checkbox.checked = false;
+    $radios.each(function() {
+      $(this).prop('checked', false);
+    })
+
+    $checkbox.prop('checked', false);
 
     // Set success message
-    errorMessage.style.color = '#008800';  // Red for error
+    $errorMessage.css('color', '#008800');
     errorString += 'Your message was sent successfully! We\'ll be in touch.';
   }
 
   // Display the error/success message
-  errorMessage.textContent = errorString;
+  $errorMessage.text(errorString);
 });
