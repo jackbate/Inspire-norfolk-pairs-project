@@ -1148,6 +1148,10 @@ header {
   width: 350px;
   vertical-align: middle;
 }
+#form-submit-error + span {
+  display: inline;
+  vertical-align: middle;
+}
 
 #map {
   height: max-content;
