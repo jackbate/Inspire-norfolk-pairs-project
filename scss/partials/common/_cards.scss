@@ -12,11 +12,16 @@
 //====================
 // OUR SERVICES CARDS
 //====================
+// With pure CSS loads as expanded; if JS is enabled makes
+// card collapsed (designed so that JS is unobtrusive - if
+// user doesn't have JS enabled, they can still read all
+// the content).
 
 .service-card-container {
   @include set-content-width;
-  margin   : 35px auto;
-  padding  : 0 15px;
+  margin   : 35px 0;
+  padding  : 0;
+  min-width: 100%;
   @media (min-width: map-get($breakpoints, 'm')) {
     padding: 0;
   }
@@ -59,7 +64,7 @@
       }
     }
 
-    max-height : 120px;   // 5 * line-height
+    max-height : max-content;
     overflow   : hidden;
 
     line-height: 24px;
@@ -67,7 +72,7 @@
     color      : $secondary;
 
     .fade {
-      visibility: visible;
+      visibility: hidden;
       position  : absolute;
       bottom    : 0;
       height    : 50px;

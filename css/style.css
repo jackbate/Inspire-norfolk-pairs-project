@@ -695,8 +695,9 @@ header {
 }
 
 .service-card-container {
-  margin: 35px auto;
-  padding: 0 15px;
+  margin: 35px 0;
+  padding: 0;
+  min-width: 100%;
 }
 @media (min-width: 767px) {
   .service-card-container {
@@ -753,7 +754,7 @@ header {
   flex: 0 0 auto;
   position: relative;
   margin: 15px auto;
-  max-height: 120px;
+  max-height: max-content;
   overflow: hidden;
   line-height: 24px;
   text-align: center;
@@ -783,7 +784,7 @@ header {
   }
 }
 .service-card-description .fade {
-  visibility: visible;
+  visibility: hidden;
   position: absolute;
   bottom: 0;
   height: 50px;
