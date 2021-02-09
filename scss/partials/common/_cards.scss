@@ -76,7 +76,12 @@
       bottom    : 0;
       height    : 50px;
       width     : 100%;
-      background: linear-gradient(transparent, $primary);
+
+      // N.B. Safari requires a transparent version of the same color, can't
+      // just use the transparent keyword.
+      background: linear-gradient(
+        transparentize($primary, 1), $primary
+      );
     }
   }
 
