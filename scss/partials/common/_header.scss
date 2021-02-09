@@ -10,8 +10,8 @@ header {
   @include justify-content($value: space-between);
   @include align-items($value: center);
 
-  margin   : 0 auto;
-  min-height   : 100%;
+  margin    : 0 auto;
+  min-height: 100%;
 }
 
 #site-logo {
@@ -78,6 +78,7 @@ header {
 
     font-weight         : 600;
     line-height         : 38px;
+    vertical-align      : middle;
 
     i {
       display           : none;
@@ -89,11 +90,22 @@ header {
 
     @media (min-width: map-get($breakpoints, 'l')) {
       i {
-        display         : inline;
-        background-color: $secondary;
+        display         : inline-block;
+        padding         : 7px;
+
+        // This is the only way I can seem to make vertical alignment
+        // the same across browsers... was too low on firefox.
+        margin-top      : 1px;
+        vertical-align  : top;
+
+        line-height     : 18px;
         color           : $primary;
-        border          : 8px solid $secondary;
+        background-color: $secondary;
+        border          : 1px solid $secondary;
         border-radius   : 100%;
+
+
+
 
         &:hover, &:focus, &:hover {
           color         : $primary-hover;

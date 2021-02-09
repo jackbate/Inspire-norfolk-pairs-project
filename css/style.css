@@ -259,6 +259,7 @@ header {
   height: 40px;
   font-weight: 600;
   line-height: 38px;
+  vertical-align: middle;
 }
 #voip-button:hover, #voip-button:focus {
   border: 2px solid #433172;
@@ -278,10 +279,14 @@ header {
 }
 @media (min-width: 992px) {
   #voip-button i {
-    display: inline;
-    background-color: white;
+    display: inline-block;
+    padding: 7px;
+    margin-top: 1px;
+    vertical-align: top;
+    line-height: 18px;
     color: #584096;
-    border: 8px solid white;
+    background-color: white;
+    border: 1px solid white;
     border-radius: 100%;
   }
   #voip-button i:hover, #voip-button i:focus, #voip-button i:hover {
