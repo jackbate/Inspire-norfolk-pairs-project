@@ -89,6 +89,8 @@
   @media (min-width: map-get($breakpoints, 'm')) {
     font-size: 1.125rem;
   }
+
+  height: 20px;  // FIREFOX CONSISTENCY
 }
 
 .required-label::after {
@@ -107,7 +109,8 @@
   overflow        : hidden;
 }
 
-.form-input-field label {
+.form-input-field > label {
+  display         : block;
   position        : relative;
 }
 
@@ -115,7 +118,8 @@
   position        : absolute;
   height          : 2px;
   width           : 100vw;
-  bottom          : -10px;
+  bottom          : 0;
+
   transform       : translateX(-100%);
   background-color: $primary;
 }
@@ -126,8 +130,7 @@
   background-color: transparentize($primary, .8);
   border          : 0;
   color           : darken($body-copy, 15);
-
-  font-size: 1rem;
+  font-size       : 1rem;
 
   &:focus {
     outline       : none;
@@ -159,6 +162,7 @@ $radio-height: 18px;
       height              : $radio-height;
       cursor              : pointer;
 
+      -webkit-appearance  : none;
       appearance          : none;
     	background-color    : transparentize($primary, .8);
     	border              : 1px solid transparentize($primary-hover, .8);
@@ -212,17 +216,24 @@ $radio-buttons: ("form-radio-business", "form-radio-young-person", "form-radio-o
 //===========
 
 #form-text {
-  position : relative;
   overflow : hidden;
 
+  label {
+    position: relative;
+    display: block;
+  }
+
   &-input {
+    display: block;
     height : 280px;
     resize : none;
     padding: 10px;
   }
 
   .focus-bar {
-    bottom : 4px;
+    display : block;
+    position: absolute;
+    bottom  : 0;
   }
 }
 
@@ -244,6 +255,7 @@ $radio-buttons: ("form-radio-business", "form-radio-young-person", "form-radio-o
     height            : 35px;
     width             : 35px;
 
+    -webkit-appearance: none;
     appearance        : none;
   	background-color  : transparentize($primary, .8);
   	border            : 1px solid transparentize($primary-hover, .8);
