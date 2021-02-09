@@ -46,6 +46,7 @@
       margin         : 0 auto 0 0;
       padding        : 0 0 24px 0;
       width          : fit-content;
+      max-width      : max-content;  // Fixes bug in FireFox
       border-bottom  : 2px solid $secondary;
       font-size      : 1.25rem;
       font-weight    : 300;
