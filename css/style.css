@@ -148,7 +148,7 @@ header {
   -ms-flex-align: center;
   align-items: center;
   margin: 0 auto;
-  height: 100%;
+  min-height: 100%;
 }
 @media (min-width: 767px) {
   .content-wrapper {
