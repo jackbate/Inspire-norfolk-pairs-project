@@ -1356,22 +1356,25 @@ header {
   box-shadow: 0px 0px 3px #333;
 }
 
+/*
 #viewport {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: max-content auto;
-  grid-template-rows: max-content auto;
-  -ms-grid-columns: 100%;
+  display              : -ms-grid;
+  display              : grid;
+  -ms-grid-rows        : max-content auto;
+  grid-template-rows   : max-content auto;
+  -ms-grid-columns     : 100%;
   grid-template-columns: 100%;
-  overflow: hidden;
-}
-#viewport header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-}
-#viewport #banner {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-}
+
+  overflow             : hidden;
+
+  header {                             // IE needs grid items set explicitly
+    -ms-grid-row       : 1;            // in the grid.
+    -ms-grid-column    : 1;
+  }
+  #banner {
+    -ms-grid-row       : 2;
+    -ms-grid-column    : 1;
+  }
+}*/
 
 /*# sourceMappingURL=style.css.map */
