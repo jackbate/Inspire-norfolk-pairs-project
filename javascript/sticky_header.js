@@ -13,6 +13,7 @@ function changeWidth(event) {
   }
 }
 
+
 // Watch for media query and adjust header sticky wrapper height
 const mediaQuery = window.matchMedia('(min-width: 768px)');
 mediaQuery.addListener(changeWidth);
@@ -23,7 +24,7 @@ const boxShadow = '1px 1px 5px 1px #555';
 // Make sticky and apply box shadow
 $(document).ready(function(){
   $('#sticker')
-    .sticky({topSpacing:0,zIndex:1000})
+    .sticky({topSpacing:0,zIndex:5000})
     .css({
       '-webkit-box-shadow': boxShadow,
       '-moz-box-shadow': boxShadow,
