@@ -985,6 +985,10 @@ header {
   animation-fill-mode: forwards;
 }
 
+#form-email-input {
+  box-shadow: none !important;
+}
+
 #form-radio label > div {
   display: -ms-flexbox;
   display: flex;
