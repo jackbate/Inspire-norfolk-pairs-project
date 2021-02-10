@@ -1177,6 +1177,11 @@ header {
   vertical-align: middle;
 }
 
+.grecaptcha-badge {
+  z-index: 99999;
+  display: block;
+}
+
 #map {
   height: max-content;
   padding: 35px 0;

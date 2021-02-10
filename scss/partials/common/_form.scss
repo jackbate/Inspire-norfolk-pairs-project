@@ -329,3 +329,13 @@ $radio-buttons: ("form-radio-business", "form-radio-young-person", "form-radio-o
     }
   }
 }
+
+//===========
+// reCAPTCHA
+//===========
+
+//Prevent reCAPTCHA from being hidden behind map
+.grecaptcha-badge {
+   z-index: 99999;
+   display: block;
+}
