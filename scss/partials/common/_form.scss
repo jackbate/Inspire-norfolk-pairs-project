@@ -140,6 +140,11 @@
   }
 }
 
+// Firefox auto-validates email field; remove validation style
+#form-email-input {
+  box-shadow: none !important;
+}
+
 //=======
 // RADIO
 //=======

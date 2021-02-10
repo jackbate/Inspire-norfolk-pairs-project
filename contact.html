@@ -23,9 +23,6 @@
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""></script>
 
-    <!-- ReCaptcha from Google -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-
     <!-- Normalize stylesheet -->
     <link rel="stylesheet" href="css/normalize.css">
 
@@ -154,7 +151,10 @@
               class="g-recaptcha"
               data-sitekey="6LdLz0YaAAAAANKr8Jaa68zNJtqSHdF3x3FBAQl5"
               data-callback='onSubmit'
-              data-action='submit'>Submit enquiry</button>
+              data-action='submit'
+              type='submit'
+              value='submit'
+              onclick="">Submit enquiry</button>
             <div id="form-submit-error">
               <span></span>
             </div>
@@ -201,51 +201,14 @@
     <script src="javascript/sticky/jquery.sticky.js"></script>
     <script src="javascript/sticky_header.js"></script>
 
-    <!-- Form validation -->
-    <script src="javascript/form_validation.js"></script>
-
     <!-- reCAPTCHA -->
-    <script>
-      function onSubmit(token) {
-        document.getElementById("demo-form").submit(); // NTD
-      }
-    </script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <!-- Form validation & submit -->
+    <script src="javascript/form_validate_submit.js"></script>
 
     <!-- Leaflet map -->
-    <script>
-    const coordinates = [52.628614, 1.296345]
-      const mymap = L.map('map-interactive', {minZoom: 6}).setView(coordinates, 13);
-
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiemctbmV0bWF0dGVycyIsImEiOiJja2tvMHk4OXMzNWltMnhxdHUwOGU2dnNoIn0.mdmi1fmPyq0QUosQKJV6xw', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiemctbmV0bWF0dGVycyIsImEiOiJja2tvMHk4OXMzNWltMnhxdHUwOGU2dnNoIn0.mdmi1fmPyq0QUosQKJV6xw'
-      }).addTo(mymap);
-
-      const greenIcon = L.icon({
-        iconUrl: 'assets/images/pin.svg',
-        iconSize:     [40, 95],
-        iconAnchor:   [20, 70],
-        popupAnchor:  [1, -50]
-      });
-
-      const marker = L.marker(coordinates, {
-        icon: greenIcon,
-        title: 'Inspire Norolfk location'
-      }).addTo(mymap).bindPopup(`
-        <address style="font-style: normal;">
-          <p>
-            <strong>Inspire Norfolk</strong><br>
-            1 Castle Meadow</br>
-            Norwich<br>
-            Norfolk<br>
-            NR1 A99
-          </p>
-        </address>`);
-    </script>
+    <script src="javascript/map.js"></script>
 
   </body>
 </html>

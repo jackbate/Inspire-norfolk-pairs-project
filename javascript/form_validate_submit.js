@@ -73,50 +73,24 @@ function notCheckedGDPR ($checkbox) {
 }
 
 
-//=============================================
-// PERFORM VALIDATION ON SUBMIT BUTTON CLICKED
-//=============================================
-
 // Get button for submit
 const $button = $('#form-submit-button');
 
 // Add a blank error message after the button
 const $errorMessage = $('#form-submit-error > span');
 
-// On button click, check if any required fields/selections are empty.
+// Get the form
+const $form = $('#form');
+
+
 $button.click(function() {
-
-  //====================
-  // CHECK INPUT FIELDS
-  //====================
-
-  // Check fields are populated
-  let $requiredFields = $('.required-input[type="text"], .required-input[type="email"]');
-
-  //========================
-  // VALIDATE EMAIL ADDRESS
-  //========================
-
-  // Validate email address
-  let $emailInput = $('#form-email-input');
-
-  //==================================
-  // CHECK A RADIO BUTTON IS SELECTED
-  //==================================
-
-  // Check a radio button is selected
-  let $radios = $(':radio');
-
-  //=================================
-  // CHECK GDPR CHECKBOX IS SELECTED
-  //=================================
-
-  // Check the checkbox is checked
-  let $checkbox = $('#form-gdpr-checkbox')
-
   //=========================
   // PERFORM FORM VALIDATION
   //=========================
+  let $requiredFields = $('.required-input[type="text"], .required-input[type="email"]');
+  let $emailInput = $('#form-email-input');
+  let $radios = $(':radio');
+  let $checkbox = $('#form-gdpr-checkbox')
 
   let errorString = '';
   $errorMessage.css('color', '#FF0000');
@@ -131,7 +105,34 @@ $button.click(function() {
     errorString += 'To get in contact, please accept our GDPR statement.';
   } else {
 
-    // Clear fields
+    $form.submit(function(event) {
+
+      // Stop the form submission from taking place when it usually would
+      event.preventDefault();
+
+      //===================
+      // PERFORM reCAPTCHA
+      //===================
+      grecaptcha.ready(function() {
+        grecaptcha.execute(
+          '6LdLz0YaAAAAANKr8Jaa68zNJtqSHdF3x3FBAQl5',
+          {action: 'submit'}
+        ).then(function(token) {
+          // Logic to submit to backend server
+          console.log('Placeholder for backend form submit');
+        });
+      });
+    });
+
+    //=====================
+    // SET SUCCESS MESSAGE
+    //=====================
+    $errorMessage.css('color', '#008800');
+    errorString += 'Your message was sent successfully! We\'ll be in touch.';
+
+    //==============
+    // CLEAR FIELDS
+    //==============
     $requiredFields.each(function() {
       $(this).val('');
     });
@@ -140,15 +141,14 @@ $button.click(function() {
 
     $radios.each(function() {
       $(this).prop('checked', false);
-    })
+    });
 
     $checkbox.prop('checked', false);
+  }  // End of else statement
 
-    // Set success message
-    $errorMessage.css('color', '#008800');
-    errorString += 'Your message was sent successfully! We\'ll be in touch.';
-  }
-
-  // Display the error/success message
+  //===============================
+  // DISPLAY ERROR/SUCCESS MESSAGE
+  //===============================
   $errorMessage.text(errorString);
-});
+
+});  // End of button click event
