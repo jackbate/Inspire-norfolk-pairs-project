@@ -1,154 +1,177 @@
-function emptyFields ($requiredFields) {
-  /**
-   * Checks input fields contain text
-   *
-   * @param {collection} $requiredFields - jQuery collection of DOM elements (input fields)
-   * @returns {bool} - if any fields are empty returns true, else returns false
-   */
+class Form {
 
-  let isEmpty = false;                         // Default assume fields have text on them
-
-  $requiredFields.each(function(i, element) {
-    if (!$(this).val()) {                      // If any of fields are empty,
-      isEmpty = true;                          // set isEmpty to true
+  constructor (formFields) {
+    this.formFields = {
+      $form: $(formFields['$form']),
+      $inputName: $(formFields['$inputName']),
+      $inputEmail: $(formFields['$inputEmail']),
+      $inputPhone: $(formFields['$inputPhone']),
+      $inputRadios: $(formFields['$inputRadios']),
+      $inputMessage: $(formFields['$inputMessage']),
+      $inputGDPR: $(formFields['$inputGDPR']),
+      $inputSubmitButton: $(formFields['$inputSubmitButton']),
+      $required: $(formFields['$required']),
+      $output: $(formFields['$output'])
     }
-  });
 
-  return isEmpty;
-}
-
-
-function invalidEmailAddress ($emailField) {
-  /**
-   * Validates text on the email fields is an address
-   *
-   * @param {element} $emailField - the jQuery DOM element that is an input field of type email
-   * @returns {bool} - if valid email returns false, else if invalid returns true
-   */
-
-   const reEmail = new RegExp('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}');
-
-   emailAddress = reEmail.test($emailField.val().toUpperCase());
-
-   if (emailAddress) {
-     return false;
-   } else {
-     return true;
-   }
-}
-
-
-function noRadioSelected ($requiredRadios) {
-  /**
-   * Checks one of the radio buttons is selected
-   *
-   * @param {collection} $requiredRadios - a jQuery collection of DOM elements (input fields with type='radio')
-   * @returns {bool} - if any radio button is selected returns false, else returns true
-   */
-
-  let noneChecked = true;                      // Default assume radio checked
-  $requiredRadios.each(function() {
-    if ($(this).is(':checked')) {              // If a radio is checked
-      noneChecked = false;                     // set isChecked to true
+    this.errorMessages = {
+      emptyFields: 'Oops! Looks like one or more required fields (marked by *) are empty.',
+      invalidEmail: 'Oops! Please check the email address you\'ve entered is correct.',
+      noRadioSelected: 'Please pick a reason for your enquiry (if you\'re unsure, choose "Something Else").',
+      notCheckedGDPR: 'To get in contact, please accept our GDPR statement.'
     }
-  });
-
-  return noneChecked;
-}
+  }
 
 
-function notCheckedGDPR ($checkbox) {
-  /**
-   * Checks user has accepted the GDPR statement
-   *
-   * @param {element} $checkbox - a jQuery checkbox DOM element, to test if checked
-   * @returns {bool} - if checked returns true, else returns false
-   */
-
-   if ($checkbox.is(':checked')) {             // If GDPR is checked
-     return false;                             // returns false
-   } else {                                    // If GDPR is not checked
-     return true;                              // returns true
-   }
-}
+  validate() {
+    let formErrors = [];                           // Empty array of errors
+    let outputErrorMessage = '';
 
 
-// Get button for submit
-const $button = $('#form-submit-button');
-
-// Add a blank error message after the button
-const $errorMessage = $('#form-submit-error > span');
-
-// Get the form
-const $form = $('#form');
+    //===== VALIDATE GDPR CHECKBOX CHECKED =====
+    if (!this.formFields.$inputGDPR.is(':checked')) {
+      outputErrorMessage = this.errorMessages['notCheckedGDPR'];
+      formErrors.push('GDPR Checkbox not checked');
+    }
 
 
-$button.click(function() {
-  //=========================
-  // PERFORM FORM VALIDATION
-  //=========================
-  let $requiredFields = $('.required-input[type="text"], .required-input[type="email"]');
-  let $emailInput = $('#form-email-input');
-  let $radios = $(':radio');
-  let $checkbox = $('#form-gdpr-checkbox')
+    //===== VALIDATE RADIO BUTTON CHECKED =====
+    let checked = false;
 
-  let errorString = '';
-  $errorMessage.css('color', '#FF0000');
+    this.formFields.$inputRadios.each(
+      function() {
+        if ($(this).is(':checked')) {              // If a radio is checked
+          checked = true;                          // set checked to true
+        }
+      }
+    );
 
-  if (emptyFields($requiredFields)) {
-    errorString += 'Oops! Looks like one or more required fields (marked by *) are empty.';
-  } else if (invalidEmailAddress($emailInput)) {
-    errorString += 'Oops! Please check the email address you\'ve entered is correct.';
-  } else if (noRadioSelected($radios)) {
-    errorString += 'Please pick a reason for your enquiry (if you\'re unsure, choose "Something Else").';
-  } else if (notCheckedGDPR($checkbox)) {
-    errorString += 'To get in contact, please accept our GDPR statement.';
-  } else {
+    if (!checked) {
+      outputErrorMessage = this.errorMessages['noRadioSelected'];
+      formErrors.push('No radio button selected');
+    }
 
-    $form.submit(function(event) {
 
-      // Stop the form submission from taking place when it usually would
-      event.preventDefault();
+    //===== VALIDATE EMAIL ADDRESS =====
+    const reEmail = new RegExp('[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}');
 
-      //===================
-      // PERFORM reCAPTCHA
-      //===================
-      grecaptcha.ready(function() {
-        grecaptcha.execute(
-          '6LdLz0YaAAAAANKr8Jaa68zNJtqSHdF3x3FBAQl5',
-          {action: 'submit'}
-        ).then(function(token) {
-          // Logic to submit to backend server
-          console.log('Placeholder for backend form submit');
+    if (!reEmail.test(this.formFields.$inputEmail.val().toUpperCase())) {
+      outputErrorMessage = this.errorMessages['invalidEmail'];
+      formErrors.push('Invalid email');
+    }
+
+
+    //===== VALIDATE REQUIRED FIELDS =====
+    let numRequiredFields = this.formFields.$required.length;
+    let numberOfEmpty = 0;
+
+    if (numRequiredFields >= 1) {
+      this.formFields.$required.each(
+        function(i, element) {
+          if (!$(this).val()) {                    // If any of fields are empty,
+            numberOfEmpty++;                       // + 1 to number of empty fields
+          }
+        }
+      );
+    }
+
+    if (numberOfEmpty >= 1) {
+      outputErrorMessage = this.errorMessages['emptyFields'];
+      formErrors.push(`${numberOfEmpty}/${numRequiredFields} fields empty`);
+    }
+
+
+    //===== DISPLAY ANY ERROR MESSAGES =====
+    this.formFields.$output.css('color', '#FF0000');
+
+    if (formErrors.length >= 1) {
+      this.formFields.$output.text(outputErrorMessage);       // Set error message to the first error caught
+    } else {
+      this.formFields.$output.text('');                       // Clear any error message that was displayed
+    }
+    return formErrors;
+  }
+
+
+  formSubmit () {
+    let submitted = false;
+
+    this.formFields.$form.submit(
+      function(event) {
+
+        // Stop the form submission from taking place when it usually would
+        event.preventDefault();
+
+        //===== PERFORM reCAPTCHA =====
+        grecaptcha.ready(function() {
+          grecaptcha.execute(
+            '6LdLz0YaAAAAANKr8Jaa68zNJtqSHdF3x3FBAQl5',
+            {action: 'submit'}
+          ).then(function(token) {
+            // Logic to submit to backend server
+            console.log('Placeholder for backend form submit');
+
+            // Set success message
+            submitted = true;
+            this.formFields.$output.css('color', '#008800');
+            this.formFields.$output.text('Your message was sent successfully! We\'ll be in touch');
+          });
         });
-      });
-    });
+      }
+    );
 
-    //=====================
-    // SET SUCCESS MESSAGE
-    //=====================
-    $errorMessage.css('color', '#008800');
-    errorString += 'Your message was sent successfully! We\'ll be in touch.';
+    // Placeholder to mimic succesfull submit
+    submitted = true;
+    this.formFields.$output.css('color', '#008800');
+    this.formFields.$output.text('Your message was sent successfully! We\'ll be in touch');
+    //
 
-    //==============
-    // CLEAR FIELDS
-    //==============
-    $requiredFields.each(function() {
-      $(this).val('');
-    });
+    return submitted;
+  }
 
-    $('#form-phone-input').val('');
 
-    $radios.each(function() {
+  clearFields() {
+    this.formFields.$inputName.val('');
+    this.formFields.$inputEmail.val('');
+    this.formFields.$inputPhone.val('');
+    this.formFields.$inputMessage.val('');
+
+    this.formFields.$inputRadios.each(function() {
       $(this).prop('checked', false);
     });
+    this.formFields.$inputGDPR.prop('checked', false);
+  }
 
-    $checkbox.prop('checked', false);
-  }  // End of else statement
+}  // End of Form() {}
 
-  //===============================
-  // DISPLAY ERROR/SUCCESS MESSAGE
-  //===============================
-  $errorMessage.text(errorString);
 
-});  // End of button click event
+const $button = $('#form-submit-button');
+
+$button.click(
+  function() {
+    const formData = new Form(
+      {
+        $form: '#form',
+        $inputName: '#form-name-input',
+        $inputEmail: '#form-email-input',
+        $inputPhone: '#form-phone-input',
+        $inputRadios: ':radio',
+        $inputMessage: '#form-text-input',
+        $inputGDPR: '#form-gdpr-checkbox',
+        $inputSubmitButton: '#form-submit-button',
+        $required: '.required-input[type="text"], .required-input[type="email"]',
+        $output: '#form-submit-error > span'
+      }
+    );
+
+    const validity = formData.validate();
+
+    if (validity.length === 0) {
+      const submitted = formData.formSubmit();
+
+      if (submitted) {
+        formData.clearFields();
+      }  // NTD - If not succesfully submitted display an error
+    }
+  }
+);
