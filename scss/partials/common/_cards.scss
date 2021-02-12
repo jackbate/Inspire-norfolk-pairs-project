@@ -34,27 +34,22 @@
   @include align-content(stretch);
 
   margin          : 0 0 35px;
-  padding         : 35px;
+  padding         : 35px 20px; //35px;
 
   background-color: $primary;
 
-  &-title {
-    @include flex($grow: 0, $shrink: 0, $basis: auto);
-    margin        : 0;
-    text-align    : center;
-    color         : $secondary;
-  }
-
+  &-title,
   &-description {
     @include flex($grow: 0, $shrink: 0, $basis: auto);
 
-    position   : relative;
+    color         : $secondary;
+    text-align    : center;
     margin     : 15px auto;
 
     $map-of-widths: (
       'm' : 680px,
       'l' : 900px,
-      'xl': 1150px,
+      'xl': 940px,
     );
     @each $key, $value in $breakpoints {
       @media (min-width: $value) {
@@ -62,13 +57,15 @@
         max-width : map-get($map-of-widths, $key);
       }
     }
+  }
+
+  &-description {
+    position   : relative;
 
     max-height : max-content;
     overflow   : hidden;
 
     line-height: 24px;
-    text-align : center;
-    color      : $secondary;
 
     .fade {
       visibility: hidden;
