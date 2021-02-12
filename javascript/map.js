@@ -11,10 +11,10 @@ const coordinates = [52.628614, 1.296345]
   }).addTo(mymap);
 
   const greenIcon = L.icon({
-    iconUrl: 'assets/images/pin.svg',
-    iconSize:     [40, 95],
-    iconAnchor:   [20, 70],
-    popupAnchor:  [1, -50]
+    iconUrl: 'assets/images/pin512px.svg',
+    iconSize:     [30, 85],
+    iconAnchor:   [16, 85],
+    popupAnchor:  [-.5, -85]
   });
 
   const marker = L.marker(coordinates, {
