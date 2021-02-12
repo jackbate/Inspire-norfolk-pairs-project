@@ -748,49 +748,44 @@ header {
   -ms-flex-line-pack: stretch;
   align-content: stretch;
   margin: 0 0 35px;
-  padding: 35px;
+  padding: 35px 20px;
   background-color: #584096;
 }
-.service-card-title {
+.service-card-title, .service-card-description {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  margin: 0;
-  text-align: center;
   color: white;
-}
-.service-card-description {
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  position: relative;
+  text-align: center;
   margin: 15px auto;
-  max-height: max-content;
-  overflow: hidden;
-  line-height: 24px;
-  text-align: center;
-  color: white;
 }
 @media (min-width: 767px) {
-  .service-card-description {
+  .service-card-title, .service-card-description {
     box-sizing: content-box;
   }
 }
 @media (min-width: 768px) {
-  .service-card-description {
+  .service-card-title, .service-card-description {
     box-sizing: content-box;
     max-width: 680px;
   }
 }
 @media (min-width: 992px) {
-  .service-card-description {
+  .service-card-title, .service-card-description {
     box-sizing: content-box;
     max-width: 900px;
   }
 }
 @media (min-width: 1260px) {
-  .service-card-description {
+  .service-card-title, .service-card-description {
     box-sizing: content-box;
-    max-width: 1150px;
+    max-width: 940px;
   }
+}
+.service-card-description {
+  position: relative;
+  max-height: max-content;
+  overflow: hidden;
+  line-height: 24px;
 }
 .service-card-description .fade {
   visibility: hidden;
