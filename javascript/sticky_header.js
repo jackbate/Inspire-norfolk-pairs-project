@@ -1,5 +1,24 @@
-function changeWidth(event) {
-  // Fixes bug where changing width causes incorrect adjustment of header height.
+function makeMediaQuery(on, width, callback) {
+  const mediaQuery = window.matchMedia(`(${on}: ${width}px)`);
+  // Watch for event and execute code passed in the callback
+  mediaQuery.addListener(callback);
+}
+
+// Make header sticky and apply box shadow when scrolling
+$(document).ready(function() {
+  const boxShadow = '1px 1px 5px 1px #555';
+
+  $('#sticker')
+    .sticky({topSpacing:0,zIndex:5000})
+    .css({
+      '-webkit-box-shadow': boxShadow,
+      '-moz-box-shadow': boxShadow,
+      'box-shadow': boxShadow
+    })
+});
+
+// Fix bug where changing width causes incorrect adjustment of header height.
+makeMediaQuery('min-width', 768, (event) => {
 
   const stickyWrapper = $('#sticker-sticky-wrapper');
 
@@ -11,23 +30,4 @@ function changeWidth(event) {
   else {
     stickyWrapper.css('height', '130px');
   }
-}
-
-
-// Watch for media query and adjust header sticky wrapper height
-const mediaQuery = window.matchMedia('(min-width: 768px)');
-mediaQuery.addListener(changeWidth);
-
-// Box shadow to apply when scrolling
-const boxShadow = '1px 1px 5px 1px #555';
-
-// Make sticky and apply box shadow
-$(document).ready(function(){
-  $('#sticker')
-    .sticky({topSpacing:0,zIndex:5000})
-    .css({
-      '-webkit-box-shadow': boxShadow,
-      '-moz-box-shadow': boxShadow,
-      'box-shadow': boxShadow
-    })
 });
