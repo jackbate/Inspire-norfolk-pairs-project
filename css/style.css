@@ -608,8 +608,68 @@ header {
 }
 .cards-container {
   display: block;
-  height: 50px;
+  height: -webkit-fit-content;
+  height: fit-content;
   background-color: #584096;
+}
+
+.cards-inner {
+  margin: 0 15px;
+  border: 1px solid transparent;
+}
+@media (min-width: 767px) {
+  .cards-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  .cards-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .cards-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  .cards-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+
+.text-decoration {
+  color: white;
+  text-align: left;
+  border: 1px transparent;
+  background-color: #584096;
+}
+
+.cards-decoration {
+  color: black;
+  text-align: center;
+  border: 1px transparent;
+  background-color: white;
+}
+
+.cards-title {
+  font-size: 1.125rem;
+}
+
+.cards-text {
+  font-size: 0.875rem;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .service-card-container {

@@ -3,17 +3,83 @@
 //=================
 
 // REMOVE THIS!!! Set to help distinguish description sections on home page during build
-.cards-container {
-  display: $flexbox;
-  height: fit-content;
-  background-color: $primary;
+
+.cards{
+  &-container{
+    display: $flexbox;
+    height: fit-content;
+    background-color: $primary;
+  }
+  &-inner{
+    @include set-content-width;
+    margin: 0 15px;
+    border: 1px solid transparent; 
+  }
+  &-decoration{
+    text-align: center;
+    border: 1px transparent;
+    background-color: $secondary;
+    margin: 15px;
+    @include flexbox;
+    @include flex-flow(column nowrap);
+    @include align-items(stretch);
+    @include align-content(stretch);
+
+    margin          : 0 0 35px;
+    padding         : 35px 20px; //35px;
+
+    background-color: $primary;
+
+    &-title,
+    &-description {
+      @include flex($grow: 0, $shrink: 0, $basis: auto);
+
+      color         : $secondary;
+      text-align    : center;
+      margin     : 15px auto;
+
+      $map-of-widths: (
+        'm' : 680px,
+        'l' : 900px,
+        'xl': 940px,
+      );
+      @each $key, $value in $breakpoints {
+        @media (min-width: $value) {
+          box-sizing: content-box;
+          max-width : map-get($map-of-widths, $key);
+        }
+      }
+    }
+  }
+  &-text{
+    font-size: 0.675rem;
+  }
+  &-title{
+    font-size: 1rem;
+    color: red;
+  }
 }
 
-.cards-inner{
-  @include set-content-width;
-  margin: 0 15px;
-  border: 1px solid transparent; 
+.desc{
+  &-text{
+    font-size: 0.875rem;
+  }
+  &-title{ 
+    font-size: 1.125rem;
+  }
 }
+
+// .cards-container {
+//   display: $flexbox;
+//   height: fit-content;
+//   background-color: $primary;
+}
+
+// .cards-inner{
+//   @include set-content-width;
+//   margin: 0 15px;
+//   border: 1px solid transparent; 
+// }
 
 .text-decoration{
   color: $secondary;
@@ -22,23 +88,21 @@
   background-color: $primary;
 }
 
-.cards-decoration{
-  color: black;
-  text-align: center;
-  border: 1px transparent;
-  background-color: $secondary;
-  margin: ;
-}
+// .cards-decoration{
+//   text-align: center;
+//   border: 1px transparent;
+//   background-color: $secondary;
+//   margin: 15px;
+// }
 
-.cards-title{
-  font-size: 1.125rem;
-  color: $primary;
-}
+// .cards-title{
+//   font-size: 1.125rem;
+//   color: $primary;
+// }
 
-.cards-text{
-  font-size: .875rem;
-  // font-size: 16px;
-}
+// .cards-text{
+//   font-size: .875rem;
+// }
 
 
 .flexbox{
@@ -49,6 +113,21 @@
   align-items: center;   
 }
 
+.git-btn{
+  @include button-base-style($style: 'primary') {
+    
+  }
+}
+
+.icn-bg{
+  border: $primary 0px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.btm_border{
+  border-bottom: 5px white solid;
+}
 
 //====================
 // OUR SERVICES CARDS
