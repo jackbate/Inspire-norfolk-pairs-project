@@ -56,7 +56,7 @@
   }
   &-title{
     font-size: 1rem;
-    color: red;
+    color: $primary;
   }
 }
 
@@ -73,7 +73,7 @@
 //   display: $flexbox;
 //   height: fit-content;
 //   background-color: $primary;
-}
+
 
 // .cards-inner{
 //   @include set-content-width;
@@ -115,7 +115,7 @@
 
 .git-btn{
   @include button-base-style($style: 'primary') {
-    
+    padding: 10px;
   }
 }
 
