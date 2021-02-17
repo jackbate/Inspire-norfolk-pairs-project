@@ -26,13 +26,13 @@
     margin          : 0 0 35px;
     padding         : 35px 20px; //35px;
 
-    background-color: $primary;
+    background-color: $secondary;
 
     &-title,
     &-description {
       @include flex($grow: 0, $shrink: 0, $basis: auto);
 
-      color         : $secondary;
+      color         : $primary;
       text-align    : center;
       margin     : 15px auto;
 
@@ -67,41 +67,12 @@
   }
 }
 
-// .cards-container {
-//   display: $flexbox;
-//   height: fit-content;
-//   background-color: $primary;
-
-
-// .cards-inner{
-//   @include set-content-width;
-//   margin: 0 15px;
-//   border: 1px solid transparent; 
-// }
-
 .text-decoration{
   color: $secondary;
   text-align: left;
   border: 1px transparent;
   background-color: $primary;
 }
-
-// .cards-decoration{
-//   text-align: center;
-//   border: 1px transparent;
-//   background-color: $secondary;
-//   margin: 15px;
-// }
-
-// .cards-title{
-//   font-size: 1.125rem;
-//   color: $primary;
-// }
-
-// .cards-text{
-//   font-size: .875rem;
-// }
-
 
 .flexbox{
   display: flex;
@@ -112,7 +83,7 @@
 }
 
 .icn-bg{
-  border: $primary 0px;
+  border: red 10px;
   padding: 10px;
   border-radius: 50%;
 }

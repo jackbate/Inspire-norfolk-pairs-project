@@ -30,11 +30,12 @@
         margin: 0 15px;
         border: 1px solid transparent; 
         color: $secondary;
+        text-align: center;
+        @include justify-content: center;
     }
     &-btn > a{
         @include button-base-style($style: 'tertiary') {
-            padding: 10px;
-            font-weight: 300;
+            font-weight: 800;
           }
     }
 }

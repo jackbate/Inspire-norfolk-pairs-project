@@ -655,11 +655,11 @@ header {
   align-content: stretch;
   margin: 0 0 35px;
   padding: 35px 20px;
-  background-color: #584096;
+  background-color: white;
 }
 .cards-decoration-title, .cards-decoration-description {
   flex: 0 0 auto;
-  color: white;
+  color: #584096;
   text-align: center;
   margin: 15px auto;
 }
@@ -717,7 +717,7 @@ header {
 }
 
 .icn-bg {
-  border: #584096 0px;
+  border: red 10px;
   padding: 10px;
   border-radius: 50%;
 }
@@ -1412,6 +1412,8 @@ header {
   margin: 0 15px;
   border: 1px solid transparent;
   color: white;
+  text-align: center;
+  justify-content: center;
 }
 @media (min-width: 767px) {
   .getintouch-inner {
@@ -1462,7 +1464,7 @@ header {
   border: 2px solid white;
   color: #584096;
   padding: 10px;
-  font-weight: 300;
+  font-weight: 800;
 }
 .getintouch-btn > a:hover, .getintouch-btn > a:focus {
   color: #584096;
