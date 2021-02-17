@@ -59,6 +59,17 @@ body {
       color           : $primary;
       background-color: $secondary;
     }
+  } @else if $style == 'tertiary' {
+    background-color  : $secondary;
+    border            : 2px solid $secondary;
+    color             : $primary;
+
+    &:hover,
+    &:focus {
+      color           : $primary;
+      background-color: darken($secondary, 10%);
+      border-color    : darken($secondary, 10%);
+    }
   } @else {
     @error "#{$style}: invalid button style. Please pass 'primary' or 'secondary'.";
   }
@@ -70,7 +81,6 @@ body {
 
   @content;
 }
-
 //==============================
 // Section styles
 //==============================

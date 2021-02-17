@@ -2,11 +2,9 @@
 // HOME PAGE CARDS
 //=================
 
-// REMOVE THIS!!! Set to help distinguish description sections on home page during build
-
 .cards{
   &-container{
-    display: $flexbox;
+    @include flexbox;
     height: fit-content;
     background-color: $primary;
   }
@@ -111,12 +109,6 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;   
-}
-
-.git-btn{
-  @include button-base-style($style: 'primary') {
-    padding: 10px;
-  }
 }
 
 .icn-bg{
