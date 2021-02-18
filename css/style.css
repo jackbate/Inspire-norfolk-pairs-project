@@ -611,12 +611,12 @@ header {
   }
 }
 .cards-container {
-  display: flex;
   height: -webkit-fit-content;
   height: fit-content;
   background-color: #584096;
 }
 .cards-inner {
+  display: flex;
   margin: 0 15px;
   border: 1px solid transparent;
 }
@@ -1366,6 +1366,7 @@ header {
 }
 
 .foot-inner {
+  margin: 0 15px;
   border: 1px solid transparent;
 }
 @media (min-width: 767px) {
@@ -1396,6 +1397,12 @@ header {
   flex-direction: column;
   text-align: left;
 }
+@media (min-width: 768px) {
+  .foot-flex {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
 .foot-title {
   font-size: 1.125rem;
   color: #584096;
@@ -1404,16 +1411,26 @@ header {
   font-size: 0.825rem;
 }
 .foot-copyright {
+  height: -webkit-fit-content;
+  height: fit-content;
   background-color: black;
-  color: white;
+}
+.foot-column {
+  flex-direction: column;
+}
+.foot-copytext {
+  color: #666;
+  font-size: 0.825rem;
 }
 
 .getintouch-inner {
-  margin: 0 15px;
-  border: 1px solid transparent;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  border: 1px solid #584096;
+  padding: 50px 15px;
   color: white;
   text-align: center;
-  justify-content: center;
 }
 @media (min-width: 767px) {
   .getintouch-inner {
@@ -1463,8 +1480,8 @@ header {
   background-color: white;
   border: 2px solid white;
   color: #584096;
-  padding: 10px;
   font-weight: 800;
+  margin: 0 auto;
 }
 .getintouch-btn > a:hover, .getintouch-btn > a:focus {
   color: #584096;
@@ -1473,6 +1490,123 @@ header {
 }
 .getintouch-btn > a:active {
   box-shadow: inset 0px 0px 3px #333;
+}
+
+@media (min-width: 768px) {
+  .getintouch-inner {
+    flex-flow: row nowrap;
+  }
+  .getintouch-btn > a {
+    margin: 0;
+  }
+}
+.quote-inner {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  padding: 50px 15px;
+  color: white;
+  text-align: center;
+}
+@media (min-width: 767px) {
+  .quote-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  .quote-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .quote-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  .quote-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+.about-inner {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 auto;
+  border: 1px solid transparent;
+  padding: 50px 15px;
+  color: #584096;
+  text-align: center;
+}
+@media (min-width: 767px) {
+  .about-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 768px) {
+  .about-inner {
+    box-sizing: content-box;
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .about-inner {
+    box-sizing: content-box;
+    max-width: 970px;
+  }
+}
+@media (min-width: 1260px) {
+  .about-inner {
+    box-sizing: content-box;
+    max-width: 1200px;
+  }
+}
+.about-card-decoration {
+  text-align: center;
+  border: 1px transparent;
+  background-color: white;
+  margin: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  margin: 0 0 35px;
+  padding: 35px 20px;
+  background-color: white;
+}
+.about-card-decoration-title, .about-card-decoration-description {
+  flex: 0 0 auto;
+  color: #584096;
+  text-align: center;
+  margin: 15px auto;
+}
+@media (min-width: 767px) {
+  .about-card-decoration-title, .about-card-decoration-description {
+    box-sizing: content-box;
+  }
+}
+@media (min-width: 768px) {
+  .about-card-decoration-title, .about-card-decoration-description {
+    box-sizing: content-box;
+    max-width: 680px;
+  }
+}
+@media (min-width: 992px) {
+  .about-card-decoration-title, .about-card-decoration-description {
+    box-sizing: content-box;
+    max-width: 900px;
+  }
+}
+@media (min-width: 1260px) {
+  .about-card-decoration-title, .about-card-decoration-description {
+    box-sizing: content-box;
+    max-width: 940px;
+  }
 }
 
 /*

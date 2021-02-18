@@ -4,11 +4,11 @@
 
 .cards{
   &-container{
-    @include flexbox;
     height: fit-content;
     background-color: $primary;
   }
   &-inner{
+    @include flexbox;
     @include set-content-width;
     margin: 0 15px;
     border: 1px solid transparent; 

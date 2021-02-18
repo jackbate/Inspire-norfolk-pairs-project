@@ -1,0 +1,29 @@
+.getintouch{
+    &-inner{
+        @include flexbox;
+        @include flex-flow(column nowrap);
+        @include set-content-width;
+        margin: 0 auto;
+        border: 1px solid $primary;
+        padding: 50px 15px;
+        color: $secondary;
+        text-align: center;
+    }
+    &-btn > a {
+        @include button-base-style($style: 'tertiary') {
+            font-weight: 800;
+          }
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: map-get($breakpoints, 'm')) {
+  .getintouch{
+      &-inner{
+          @include flex-flow(row nowrap);
+      }
+      &-btn > a {
+          margin: 0;
+      }
+  }
+}

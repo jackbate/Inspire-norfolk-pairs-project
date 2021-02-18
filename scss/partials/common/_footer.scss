@@ -1,12 +1,16 @@
 .foot{
     &-inner{
         @include set-content-width;
-        // margin: 0 15px;
+        margin: 0 15px;
         border: 1px solid transparent; 
     }
     &-flex{
         flex-direction: column;
         text-align: left;
+        @media (min-width: map-get($breakpoints, 'm')) {
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
     }
     &-title{
         font-size: 1.125rem;
@@ -15,28 +19,20 @@
     &-text{
         font-size: 0.825rem;
     }
-    &-socials{
+    // &-socials{
 
-    }
+    // }
     &-copyright{
+        height: fit-content;
         background-color: black;
-        color: white
+        
     }
-}
-
-.getintouch{
-    &-inner{
-        @include set-content-width;
-        margin: 0 15px;
-        border: 1px solid transparent; 
-        color: $secondary;
-        text-align: center;
-        @include justify-content: center;
+    &-column{
+        flex-direction: column;
     }
-    &-btn > a{
-        @include button-base-style($style: 'tertiary') {
-            font-weight: 800;
-          }
+    &-copytext{
+        color: $body-copy;
+        font-size: 0.825rem;
     }
 }
 
