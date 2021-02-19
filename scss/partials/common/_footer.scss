@@ -24,15 +24,15 @@
     // }
     &-copyright{
         height: fit-content;
-        background-color: black;
+        background-color: $primary;
         
     }
     &-direction{
         flex-direction: column;
-        
+
     }
     &-copytext{
-        color: $body-copy;
+        color: $secondary;
         font-size: 0.825rem;
     }
 }

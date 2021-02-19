@@ -1413,13 +1413,13 @@ header {
 .foot-copyright {
   height: -webkit-fit-content;
   height: fit-content;
-  background-color: black;
+  background-color: #584096;
 }
 .foot-direction {
   flex-direction: column;
 }
 .foot-copytext {
-  color: #666;
+  color: white;
   font-size: 0.825rem;
 }
 
@@ -1611,11 +1611,12 @@ header {
 
 .flip-card {
   background-color: transparent;
-  width: 300px;
+  width: 345px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #584096;
   perspective: 1000px;
   /* Remove this if you don't want the 3D effect */
+  margin: 10px 10px;
 }
 
 /* This container is needed to position the front and back side */
@@ -1645,14 +1646,14 @@ header {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
-  color: black;
+  background-color: #584096;
+  color: white;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
-  color: white;
+  background-color: white;
+  color: #584096;
   transform: rotateY(180deg);
 }
 
