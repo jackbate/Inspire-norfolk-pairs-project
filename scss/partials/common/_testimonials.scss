@@ -30,6 +30,7 @@
     height: 100%;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
+    border-radius: 5px;
   }
   
   /* Style the front side (fallback if image is missing) */
