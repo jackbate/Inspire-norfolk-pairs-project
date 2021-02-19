@@ -46,3 +46,15 @@
     transform: rotateY(180deg);
   }
 
+.margin{
+    &-left{
+        @media (min-width: map-get($breakpoints, 'l')) {
+            margin-left: 25%;
+        }
+    }
+        &-right{
+        @media (min-width: map-get($breakpoints, 'l')) {
+            margin-right: 25px;
+        }
+    }
+}

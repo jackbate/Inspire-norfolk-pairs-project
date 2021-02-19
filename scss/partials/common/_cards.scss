@@ -92,6 +92,43 @@
   border-bottom: 5px white solid;
 }
 
+#getintouch{
+  position: relative;
+}
+
+#getintouch-btn{
+  display: none;
+}
+
+#getintouch-btn:checked + #getintouch::after{
+  content: "and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}
+
+#getintouch2{
+  position: relative;
+}
+
+#getintouch-btn2{
+  display: none;
+}
+
+#getintouch-btn2:checked + #getintouch2::after{
+  content: "and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}
+
+
 //====================
 // OUR SERVICES CARDS
 //====================
