@@ -614,14 +614,24 @@ header {
     max-width: 870px;
   }
 }
+.flex-direction {
+  display: flex;
+  flex-flow: row wrap;
+}
+@media (min-width: 768px) {
+  .flex-direction {
+    flex-flow: row wrap;
+  }
+}
+
 .cards-container {
   height: -webkit-fit-content;
   height: fit-content;
   background-color: #584096;
 }
 .cards-inner {
-  display: flex;
-  margin: 0 15px;
+  margin: 0 auto;
+  padding: 0 15px;
   border: 1px solid transparent;
 }
 @media (min-width: 767px) {
@@ -649,46 +659,13 @@ header {
   }
 }
 .cards-decoration {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   border: 1px transparent;
-  background-color: white;
-  margin: 15px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: stretch;
-  align-content: stretch;
-  margin: 0 0 35px;
-  padding: 35px 20px;
-  background-color: white;
-}
-.cards-decoration-title, .cards-decoration-description {
-  flex: 0 0 auto;
-  color: #584096;
-  text-align: center;
   margin: 15px auto;
-}
-@media (min-width: 767px) {
-  .cards-decoration-title, .cards-decoration-description {
-    box-sizing: content-box;
-  }
-}
-@media (min-width: 768px) {
-  .cards-decoration-title, .cards-decoration-description {
-    box-sizing: content-box;
-    max-width: 680px;
-  }
-}
-@media (min-width: 992px) {
-  .cards-decoration-title, .cards-decoration-description {
-    box-sizing: content-box;
-    max-width: 900px;
-  }
-}
-@media (min-width: 1260px) {
-  .cards-decoration-title, .cards-decoration-description {
-    box-sizing: content-box;
-    max-width: 940px;
-  }
+  background-color: white;
+  padding: 10px;
 }
 .cards-text {
   font-size: 0.675rem;
@@ -712,14 +689,6 @@ header {
   background-color: #584096;
 }
 
-.flexbox {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
 .icn-bg {
   border: red 10px;
   padding: 10px;
@@ -728,6 +697,28 @@ header {
 
 .btm_border {
   border-bottom: 5px white solid;
+}
+
+@media (min-width: 768px) {
+  .width1-query {
+    max-width: 40%;
+  }
+}
+@media (min-width: 992px) {
+  .width1-query {
+    max-width: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .width2-query {
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .width2-query {
+    max-width: 30%;
+  }
 }
 
 .service-card-container {
@@ -1426,6 +1417,9 @@ header {
 .foot-text a:hover, .foot-navitem a:hover {
   text-decoration: underline;
 }
+.foot #foot-email {
+  text-transform: none;
+}
 .foot-text:first-child {
   font-weight: 600;
 }
@@ -1789,6 +1783,17 @@ header {
 
 .vertical-align {
   vertical-align: middle;
+}
+
+#img-card {
+  width: 100%;
+  background-repeat: no-repeat;
+  padding-top: 68%;
+  background-size: cover;
+  background-position: 50%;
+}
+#img-recruit {
+  background-image: url(../../../assets/images/apprenticeship-recruitment.jpg);
 }
 
 /*

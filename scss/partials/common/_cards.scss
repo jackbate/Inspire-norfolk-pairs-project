@@ -2,8 +2,9 @@
 // HOME PAGE CARDS
 //=================
 
-.flexdirection{
-  @include flex-flow(column wrap);
+.flex-direction{
+  @include flexbox;
+  @include flex-flow(row wrap);
   @media (min-width: map-get($breakpoints, 'm')) {
     @include flex-flow(row wrap);
   }
@@ -15,24 +16,19 @@
     background-color: $primary;
   }
   &-inner{
-    @include flexbox;
     @include set-content-width;
-    margin: 0 15px;
-    border: 1px solid transparent; 
+    margin: 0 auto;
+    padding: 0 15px;
+    border: 1px solid transparent;
   }
   &-decoration{
+    @include flexbox;
+    flex-direction: column;
     text-align: center;
     border: 1px transparent;
+    margin: 15px auto;
     background-color: $secondary;
-    margin: 15px;
-    @include flexbox;
-
-
-    @media (min-width: map-get($breakpoints, 'm')) {
-      @include flex-flow(row wrap);
-    }
-
-    background-color: $secondary;
+    padding: 10px;
   }
   &-text{
     font-size: 0.675rem;
@@ -42,7 +38,6 @@
     color: $primary;
   }
 }
-
 .desc{
   &-text{
     font-size: 0.875rem;
@@ -59,14 +54,6 @@
   background-color: $primary;
 }
 
-.flexbox{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;   
-}
-
 .icn-bg{
   border: red 10px;
   padding: 10px;
@@ -78,21 +65,21 @@
 }
 
 
-.width1_query{
+.width1-query{
   @media (min-width: map-get($breakpoints, 'm')) {
-    max-width: 50%;
+    max-width: 40%;
   }
   @media (min-width: map-get($breakpoints, 'l')) {
-    max-width: 33%;
+    max-width: 30%;
   }
 }
 
-.width2_query{
+.width2-query{
   @media (min-width: map-get($breakpoints, 'm')) {
    max-width: 100%; 
   }
   @media (min-width: map-get($breakpoints, 'l')) {
-    max-width: 33%;
+    max-width: 30%;
   }
 }
 
