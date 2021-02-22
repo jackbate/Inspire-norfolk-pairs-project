@@ -6,7 +6,16 @@
     padding: 0;
   }
 
-  > p {
+  > p, .privacy-list {
     line-height: 1.5;
+  }
+
+  .privacy-list {
+    list-style: none;
+
+    &-item i {
+      margin-right: 10px;
+      color: $primary;
+    }
   }
 }
