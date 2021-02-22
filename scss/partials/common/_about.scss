@@ -66,6 +66,10 @@
             }
           }
     }
+    &-flex{
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
 }
 .about-card {
   background-color: transparent;

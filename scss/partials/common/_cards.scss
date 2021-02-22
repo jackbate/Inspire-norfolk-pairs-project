@@ -2,6 +2,13 @@
 // HOME PAGE CARDS
 //=================
 
+.flexdirection{
+  @include flex-flow(column wrap);
+  @media (min-width: map-get($breakpoints, 'm')) {
+    @include flex-flow(row wrap);
+  }
+}
+
 .cards{
   &-container{
     height: fit-content;
@@ -19,35 +26,13 @@
     background-color: $secondary;
     margin: 15px;
     @include flexbox;
-    @include flex-flow(column nowrap);
-    @include align-items(stretch);
-    @include align-content(stretch);
 
-    margin          : 0 0 35px;
-    padding         : 35px 20px; //35px;
+
+    @media (min-width: map-get($breakpoints, 'm')) {
+      @include flex-flow(row wrap);
+    }
 
     background-color: $secondary;
-
-    &-title,
-    &-description {
-      @include flex($grow: 0, $shrink: 0, $basis: auto);
-
-      color         : $primary;
-      text-align    : center;
-      margin     : 15px auto;
-
-      $map-of-widths: (
-        'm' : 680px,
-        'l' : 900px,
-        'xl': 940px,
-      );
-      @each $key, $value in $breakpoints {
-        @media (min-width: $value) {
-          box-sizing: content-box;
-          max-width : map-get($map-of-widths, $key);
-        }
-      }
-    }
   }
   &-text{
     font-size: 0.675rem;
@@ -76,7 +61,7 @@
 
 .flexbox{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;   
@@ -93,6 +78,23 @@
 }
 
 
+.width1_query{
+  @media (min-width: map-get($breakpoints, 'm')) {
+    max-width: 50%;
+  }
+  @media (min-width: map-get($breakpoints, 'l')) {
+    max-width: 33%;
+  }
+}
+
+.width2_query{
+  @media (min-width: map-get($breakpoints, 'm')) {
+   max-width: 100%; 
+  }
+  @media (min-width: map-get($breakpoints, 'l')) {
+    max-width: 33%;
+  }
+}
 
 //====================
 // OUR SERVICES CARDS
