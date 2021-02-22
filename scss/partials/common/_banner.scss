@@ -20,7 +20,7 @@
   background         : $primary url("../assets/images/banner-about.jpg") no-repeat 40% center;
 }
 #banner-testimonials{
-  background         : $primary url("../assets/images/banner-testimonials.jpg") no-repeat 40% center;
+  background         : $primary url("../assets/images/banner-testimonials.jpg") no-repeat 50% center;
 }
 
 #banner-content {
@@ -242,6 +242,9 @@
     }
     #banner-image-services {
       background      : url("../assets/images/apprenticeship-recruitment.jpg") no-repeat 40% center;
+    }
+    #banner-image-testimonials {
+      background      : url("../assets/images/banner-testimonials.jpg") no-repeat 50% center;
     }
   }
 }
