@@ -1,0 +1,12 @@
+.privacy-inner {
+  @include set-content-width;
+  margin: 35px auto;
+  padding: 0 15px;
+  @media (min-width: map-get($breakpoints, 'm')) {
+    padding: 0;
+  }
+
+  > p {
+    line-height: 1.5;
+  }
+}
