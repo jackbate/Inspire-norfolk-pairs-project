@@ -1,12 +1,13 @@
-#img{
-    &-card{
-        width: 100%; 
-        background-repeat: no-repeat;
-        padding-top: 68%;
-        background-size: cover;
-        background-position: 50%;
-    }
+.img{
+    // &-card{
+    //     width: 100%; 
+    //     background-repeat: no-repeat;
+    //     padding-top: 68%;
+    //     background-size: cover;
+    //     background-position: 50%;
+    // }
     &-recruit{
-        background-image: url(../../../assets/images/apprenticeship-recruitment.jpg);
+        // background-image: url("/assets/images/apprenticeship-recruitment.jpg");
+        background: $secondary url("/assets/images/apprenticeship-recruitment.jpg") no-repeat center;
     }
 }

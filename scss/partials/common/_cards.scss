@@ -75,9 +75,6 @@
 }
 
 .width2-query{
-  @media (min-width: map-get($breakpoints, 'm')) {
-   max-width: 100%; 
-  }
   @media (min-width: map-get($breakpoints, 'l')) {
     max-width: 30%;
   }
