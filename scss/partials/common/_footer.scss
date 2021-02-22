@@ -36,6 +36,11 @@
         text-decoration: underline;
       }
     }
+
+    #foot-email {
+      text-transform: none;
+    }
+
     &-text:first-child {
       font-weight: 600;
     }
@@ -108,26 +113,3 @@
         text-align: center;
     }
 }
-
-
-
-
-
-
-
-// ul {
-//     list-style-type: none
-// }
-
-// li {
-//     display: grid;
-//     grid-template-columns: 20px auto;
-//     justify-content: start;
-//     align-items: center;
-// }
-
-// li::before {
-//     content: "U+1433";
-//     font-size: 10px;
-//     color: #999;
-// }
