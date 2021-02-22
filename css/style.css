@@ -671,6 +671,7 @@ header {
 }
 .cards-text {
   font-size: 0.675rem;
+  padding: 10px;
 }
 .cards-title {
   font-size: 1rem;
@@ -682,9 +683,17 @@ header {
 }
 .desc-title {
   font-size: 1.125rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.25rem;
   max-width: -webkit-fit-content;
   max-width: fit-content;
+}
+.desc-flex {
+  display: flex;
+}
+@media (min-width: 768px) {
+  .desc-flex {
+    flex-direction: row wrap;
+  }
 }
 
 .text-decoration {
