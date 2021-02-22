@@ -1757,14 +1757,24 @@ header {
   transform: rotateY(180deg);
 }
 
+@media (min-width: 768px) {
+  .margin-left {
+    margin-right: 12.5%;
+  }
+}
 @media (min-width: 992px) {
   .margin-left {
-    margin-left: 100%;
+    margin-right: 50%;
   }
 }
 @media (min-width: 992px) {
   .margin-right {
     margin-right: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .margin-right {
+    margin-right: 12.5%;
   }
 }
 

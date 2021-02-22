@@ -48,14 +48,22 @@
 
 .margin{
     &-left{
+      @media (min-width: map-get($breakpoints, 'm')) {
+        // margin-left: 43.125px;
+        margin-right: 12.5%;
+      }
         @media (min-width: map-get($breakpoints, 'l')) {
-            margin-left: 100%;
-        }
+            // margin-left: 172.50px;
+            margin-right: 50%;
+      }
     }
-        &-right{
-          @media (min-width: map-get($breakpoints, 'l')) {
-              margin-right: 50%;
-        }
+    &-right{
+      @media (min-width: map-get($breakpoints, 'l')) {
+          margin-right: 50%;
+      }
+      @media (min-width: map-get($breakpoints, 'm')) {
+            margin-right: 12.5%;
+      }
     }
 }
 
